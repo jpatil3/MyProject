@@ -1,0 +1,2186 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={New Assignment2},
+  pdfauthor={Jitesh Patil, Pratik Sharma, Vibhav Mayekar},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{New Assignment2}
+\author{Jitesh Patil, Pratik Sharma, Vibhav Mayekar}
+\date{2/22/2022}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("pacman")}
+\CommentTok{\#install.packages("reshape2")}
+\CommentTok{\#install.packages("corrplot")}
+\CommentTok{\#install.packages("apaTables")}
+\CommentTok{\#install.packages("C50")}
+
+\CommentTok{\#Loading the libraries }
+
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(pacman,party,psych,rio,tidyverse)}
+\FunctionTok{library}\NormalTok{(reshape2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'reshape2'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(apaTables)}
+\FunctionTok{library}\NormalTok{(tidyselect)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(pacman)}
+\FunctionTok{library}\NormalTok{(rio)}
+\FunctionTok{library}\NormalTok{(party)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(corrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.92 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(C50)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gCred }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"German Credit.xls"}\NormalTok{)}
+\FunctionTok{View}\NormalTok{(gCred)}
+
+\CommentTok{\#creating copies for of dataset gCred for EDA }
+\NormalTok{gCred\_copy1 }\OtherTok{\textless{}{-}}\NormalTok{ gCred}
+\NormalTok{gCred\_copy2 }\OtherTok{\textless{}{-}}\NormalTok{gCred }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       OBS#           CHK_ACCT        DURATION       HISTORY     
+##  Min.   :   1.0   Min.   :0.000   Min.   : 4.0   Min.   :0.000  
+##  1st Qu.: 250.8   1st Qu.:0.000   1st Qu.:12.0   1st Qu.:2.000  
+##  Median : 500.5   Median :1.000   Median :18.0   Median :2.000  
+##  Mean   : 500.5   Mean   :1.577   Mean   :20.9   Mean   :2.545  
+##  3rd Qu.: 750.2   3rd Qu.:3.000   3rd Qu.:24.0   3rd Qu.:4.000  
+##  Max.   :1000.0   Max.   :3.000   Max.   :72.0   Max.   :4.000  
+##     NEW_CAR         USED_CAR       FURNITURE        RADIO/TV      EDUCATION   
+##  Min.   :0.000   Min.   :0.000   Min.   :0.000   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.00   1st Qu.:0.00  
+##  Median :0.000   Median :0.000   Median :0.000   Median :0.00   Median :0.00  
+##  Mean   :0.234   Mean   :0.103   Mean   :0.181   Mean   :0.28   Mean   :0.05  
+##  3rd Qu.:0.000   3rd Qu.:0.000   3rd Qu.:0.000   3rd Qu.:1.00   3rd Qu.:0.00  
+##  Max.   :1.000   Max.   :1.000   Max.   :1.000   Max.   :1.00   Max.   :1.00  
+##    RETRAINING        AMOUNT         SAV_ACCT       EMPLOYMENT   
+##  Min.   :0.000   Min.   :  250   Min.   :0.000   Min.   :0.000  
+##  1st Qu.:0.000   1st Qu.: 1366   1st Qu.:0.000   1st Qu.:2.000  
+##  Median :0.000   Median : 2320   Median :0.000   Median :2.000  
+##  Mean   :0.097   Mean   : 3271   Mean   :1.105   Mean   :2.384  
+##  3rd Qu.:0.000   3rd Qu.: 3972   3rd Qu.:2.000   3rd Qu.:4.000  
+##  Max.   :1.000   Max.   :18424   Max.   :4.000   Max.   :4.000  
+##   INSTALL_RATE      MALE_DIV     MALE_SINGLE    MALE_MAR_or_WID  CO-APPLICANT  
+##  Min.   :1.000   Min.   :0.00   Min.   :0.000   Min.   :0.000   Min.   :0.000  
+##  1st Qu.:2.000   1st Qu.:0.00   1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.000  
+##  Median :3.000   Median :0.00   Median :1.000   Median :0.000   Median :0.000  
+##  Mean   :2.973   Mean   :0.05   Mean   :0.548   Mean   :0.092   Mean   :0.041  
+##  3rd Qu.:4.000   3rd Qu.:0.00   3rd Qu.:1.000   3rd Qu.:0.000   3rd Qu.:0.000  
+##  Max.   :4.000   Max.   :1.00   Max.   :1.000   Max.   :1.000   Max.   :1.000  
+##    GUARANTOR     PRESENT_RESIDENT  REAL_ESTATE    PROP_UNKN_NONE 
+##  Min.   :0.000   Min.   :1.000    Min.   :0.000   Min.   :0.000  
+##  1st Qu.:0.000   1st Qu.:2.000    1st Qu.:0.000   1st Qu.:0.000  
+##  Median :0.000   Median :3.000    Median :0.000   Median :0.000  
+##  Mean   :0.052   Mean   :2.845    Mean   :0.282   Mean   :0.154  
+##  3rd Qu.:0.000   3rd Qu.:4.000    3rd Qu.:1.000   3rd Qu.:0.000  
+##  Max.   :1.000   Max.   :4.000    Max.   :1.000   Max.   :1.000  
+##       AGE        OTHER_INSTALL        RENT          OWN_RES     
+##  Min.   :19.00   Min.   :0.000   Min.   :0.000   Min.   :0.000  
+##  1st Qu.:27.00   1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.000  
+##  Median :33.00   Median :0.000   Median :0.000   Median :1.000  
+##  Mean   :35.55   Mean   :0.186   Mean   :0.179   Mean   :0.713  
+##  3rd Qu.:42.00   3rd Qu.:0.000   3rd Qu.:0.000   3rd Qu.:1.000  
+##  Max.   :75.00   Max.   :1.000   Max.   :1.000   Max.   :1.000  
+##   NUM_CREDITS         JOB        NUM_DEPENDENTS    TELEPHONE    
+##  Min.   :1.000   Min.   :0.000   Min.   :1.000   Min.   :0.000  
+##  1st Qu.:1.000   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:0.000  
+##  Median :1.000   Median :2.000   Median :1.000   Median :0.000  
+##  Mean   :1.407   Mean   :1.904   Mean   :1.155   Mean   :0.404  
+##  3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:1.000   3rd Qu.:1.000  
+##  Max.   :4.000   Max.   :3.000   Max.   :2.000   Max.   :1.000  
+##     FOREIGN         RESPONSE  
+##  Min.   :0.000   Min.   :0.0  
+##  1st Qu.:0.000   1st Qu.:0.0  
+##  Median :0.000   Median :1.0  
+##  Mean   :0.037   Mean   :0.7  
+##  3rd Qu.:0.000   3rd Qu.:1.0  
+##  Max.   :1.000   Max.   :1.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 32
+##   `OBS#` CHK_ACCT DURATION HISTORY NEW_CAR USED_CAR FURNITURE `RADIO/TV`
+##    <dbl>    <dbl>    <dbl>   <dbl>   <dbl>    <dbl>     <dbl>      <dbl>
+## 1      1        0        6       4       0        0         0          1
+## 2      2        1       48       2       0        0         0          1
+## 3      3        3       12       4       0        0         0          0
+## 4      4        0       42       2       0        0         1          0
+## 5      5        0       24       3       1        0         0          0
+## 6      6        3       36       2       0        0         0          0
+## # ... with 24 more variables: EDUCATION <dbl>, RETRAINING <dbl>, AMOUNT <dbl>,
+## #   SAV_ACCT <dbl>, EMPLOYMENT <dbl>, INSTALL_RATE <dbl>, MALE_DIV <dbl>,
+## #   MALE_SINGLE <dbl>, MALE_MAR_or_WID <dbl>, `CO-APPLICANT` <dbl>,
+## #   GUARANTOR <dbl>, PRESENT_RESIDENT <dbl>, REAL_ESTATE <dbl>,
+## #   PROP_UNKN_NONE <dbl>, AGE <dbl>, OTHER_INSTALL <dbl>, RENT <dbl>,
+## #   OWN_RES <dbl>, NUM_CREDITS <dbl>, JOB <dbl>, NUM_DEPENDENTS <dbl>,
+## #   TELEPHONE <dbl>, FOREIGN <dbl>, RESPONSE <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "OBS#"             "CHK_ACCT"         "DURATION"         "HISTORY"         
+##  [5] "NEW_CAR"          "USED_CAR"         "FURNITURE"        "RADIO/TV"        
+##  [9] "EDUCATION"        "RETRAINING"       "AMOUNT"           "SAV_ACCT"        
+## [13] "EMPLOYMENT"       "INSTALL_RATE"     "MALE_DIV"         "MALE_SINGLE"     
+## [17] "MALE_MAR_or_WID"  "CO-APPLICANT"     "GUARANTOR"        "PRESENT_RESIDENT"
+## [21] "REAL_ESTATE"      "PROP_UNKN_NONE"   "AGE"              "OTHER_INSTALL"   
+## [25] "RENT"             "OWN_RES"          "NUM_CREDITS"      "JOB"             
+## [29] "NUM_DEPENDENTS"   "TELEPHONE"        "FOREIGN"          "RESPONSE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1000   32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [1,000 x 32] (S3: tbl_df/tbl/data.frame)
+##  $ OBS#            : num [1:1000] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ CHK_ACCT        : num [1:1000] 0 1 3 0 0 3 3 1 3 1 ...
+##  $ DURATION        : num [1:1000] 6 48 12 42 24 36 24 36 12 30 ...
+##  $ HISTORY         : num [1:1000] 4 2 4 2 3 2 2 2 2 4 ...
+##  $ NEW_CAR         : num [1:1000] 0 0 0 0 1 0 0 0 0 1 ...
+##  $ USED_CAR        : num [1:1000] 0 0 0 0 0 0 0 1 0 0 ...
+##  $ FURNITURE       : num [1:1000] 0 0 0 1 0 0 1 0 0 0 ...
+##  $ RADIO/TV        : num [1:1000] 1 1 0 0 0 0 0 0 1 0 ...
+##  $ EDUCATION       : num [1:1000] 0 0 1 0 0 1 0 0 0 0 ...
+##  $ RETRAINING      : num [1:1000] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ AMOUNT          : num [1:1000] 1169 5951 2096 7882 4870 ...
+##  $ SAV_ACCT        : num [1:1000] 4 0 0 0 0 4 2 0 3 0 ...
+##  $ EMPLOYMENT      : num [1:1000] 4 2 3 3 2 2 4 2 3 0 ...
+##  $ INSTALL_RATE    : num [1:1000] 4 2 2 2 3 2 3 2 2 4 ...
+##  $ MALE_DIV        : num [1:1000] 0 0 0 0 0 0 0 0 1 0 ...
+##  $ MALE_SINGLE     : num [1:1000] 1 0 1 1 1 1 1 1 0 0 ...
+##  $ MALE_MAR_or_WID : num [1:1000] 0 0 0 0 0 0 0 0 0 1 ...
+##  $ CO-APPLICANT    : num [1:1000] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ GUARANTOR       : num [1:1000] 0 0 0 1 0 0 0 0 0 0 ...
+##  $ PRESENT_RESIDENT: num [1:1000] 4 2 3 4 4 4 4 2 4 2 ...
+##  $ REAL_ESTATE     : num [1:1000] 1 1 1 0 0 0 0 0 1 0 ...
+##  $ PROP_UNKN_NONE  : num [1:1000] 0 0 0 0 1 1 0 0 0 0 ...
+##  $ AGE             : num [1:1000] 67 22 49 45 53 35 53 35 61 28 ...
+##  $ OTHER_INSTALL   : num [1:1000] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ RENT            : num [1:1000] 0 0 0 0 0 0 0 1 0 0 ...
+##  $ OWN_RES         : num [1:1000] 1 1 1 0 0 0 1 0 1 1 ...
+##  $ NUM_CREDITS     : num [1:1000] 2 1 1 1 2 1 1 1 1 2 ...
+##  $ JOB             : num [1:1000] 2 2 1 2 2 1 2 3 1 3 ...
+##  $ NUM_DEPENDENTS  : num [1:1000] 1 1 2 2 2 2 1 1 1 1 ...
+##  $ TELEPHONE       : num [1:1000] 1 0 0 0 0 1 0 1 0 0 ...
+##  $ FOREIGN         : num [1:1000] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ RESPONSE        : num [1:1000] 1 0 1 1 0 1 1 1 1 0 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{DURATION)   }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20.903
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{AMOUNT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3271.258
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{INSTALL\_RATE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.973
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{AGE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 35.546
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{NUM\_CREDITS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.407
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{DURATION)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12.05881
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{AMOUNT)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2822.737
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{INSTALL\_RATE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.118715
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{AGE)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11.37547
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{NUM\_CREDITS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5776545
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{NUM\_DEPENDENTS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3620858
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{OBS\#}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{OBS\#}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{NEW\_CAR }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{NEW\_CAR)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{USED\_CAR }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{USED\_CAR)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{FURNITURE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{FURNITURE)}
+\NormalTok{gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{EDUCATION }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{EDUCATION)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{RETRAINING }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{RETRAINING)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{EMPLOYMENT }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{EMPLOYMENT)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{MALE\_DIV }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{MALE\_DIV)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{MALE\_SINGLE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{MALE\_SINGLE)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{MALE\_MAR\_or\_WID }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{MALE\_MAR\_or\_WID)}
+\NormalTok{gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{CO{-}APPLICANT}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{CO{-}APPLICANT}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{GUARANTOR }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{GUARANTOR)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{REAL\_ESTATE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{REAL\_ESTATE)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{PROP\_UNKN\_NONE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{PROP\_UNKN\_NONE)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{OTHER\_INSTALL }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{OTHER\_INSTALL)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{RENT }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{RENT)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{OWN\_RES }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{OWN\_RES)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{TELEPHONE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{TELEPHONE)}
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{FOREIGN }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{FOREIGN)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gCred}\SpecialCharTok{$}\NormalTok{RESPONSE }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ifelse}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }\StringTok{"Good"}\NormalTok{ , }\StringTok{"Bad"}\NormalTok{))}
+\NormalTok{table1 }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(gCred}\SpecialCharTok{$}\NormalTok{RESPONSE)}
+\NormalTok{table\_pt }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(table1,}\FunctionTok{round}\NormalTok{(}\FunctionTok{prop.table}\NormalTok{(table1)}\SpecialCharTok{*}\DecValTok{100}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{colnames}\NormalTok{(table\_pt)}\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Count\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}Percentage\textquotesingle{}}\NormalTok{)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(table\_pt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule
+& Count & Percentage \\
+\midrule
+\endhead
+Bad & 300 & 30 \\
+Good & 700 & 70 \\
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Removing redundant data}
+
+
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR, gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR }\SpecialCharTok{==} \DecValTok{1}\NormalTok{ ,}
+                                \StringTok{"NEW\_CAR"}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR, gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ , }\StringTok{""}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR, gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR }\SpecialCharTok{==} \DecValTok{1}\NormalTok{ , }
+                                 \StringTok{"USED\_CAR"}\NormalTok{ ) }
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR, gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ , }\StringTok{""}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE, gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE }\SpecialCharTok{==} \DecValTok{1}\NormalTok{ , }
+                                  \StringTok{"FURNITURE"}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE, gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ , }\StringTok{""}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}}\NormalTok{, gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \DecValTok{1}\NormalTok{ , }
+                                   \StringTok{"RADIO/TV"}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}} \OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}}\NormalTok{, gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}} \SpecialCharTok{==} \DecValTok{0}\NormalTok{ ,}
+                                   \StringTok{""}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION, gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION }\SpecialCharTok{==} \DecValTok{1}\NormalTok{ , }
+                                  \StringTok{"EDUCATION"}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION, gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ , }\StringTok{""}\NormalTok{ )}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING, gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING }\SpecialCharTok{==} \DecValTok{1}\NormalTok{ ,}
+                                   \StringTok{"RETRAINING"}\NormalTok{) }
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING }\OtherTok{\textless{}{-}}  \FunctionTok{replace}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING, gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ , }
+                                   \StringTok{""}\NormalTok{)}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{NEW\_CAR,gCred\_copy1}\SpecialCharTok{$}\NormalTok{USED\_CAR,}
+\NormalTok{                             gCred\_copy1}\SpecialCharTok{$}\NormalTok{FURNITURE,gCred\_copy1}\SpecialCharTok{$}\StringTok{\textasciigrave{}}\AttributeTok{RADIO/TV}\StringTok{\textasciigrave{}}\NormalTok{,}
+\NormalTok{                       gCred\_copy1}\SpecialCharTok{$}\NormalTok{EDUCATION,gCred\_copy1}\SpecialCharTok{$}\NormalTok{RETRAINING)}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE }\OtherTok{\textless{}{-}} \FunctionTok{trimws}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE)}
+
+\NormalTok{gCred\_copy1}\OtherTok{\textless{}{-}}\NormalTok{ gCred\_copy1 [ , }\SpecialCharTok{{-}}\FunctionTok{which}\NormalTok{(}\FunctionTok{names}\NormalTok{(gCred\_copy1) }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"NEW\_CAR"}\NormalTok{ , }\StringTok{"USED\_CAR"}\NormalTok{ ,}
+                                                               \StringTok{"FURNITURE"}\NormalTok{, }
+                                             \StringTok{"RADIO/TV"}\NormalTok{,}\StringTok{"EDUCATION"}\NormalTok{,}\StringTok{"RETRAINING"}\NormalTok{,}
+                                             \StringTok{"TELEPHONE"}\NormalTok{,}\StringTok{"FOREIGN"}\NormalTok{))]}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE[gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE[}\FunctionTok{is.na}\NormalTok{(gCred\_copy1}\SpecialCharTok{$}\NormalTok{PURPOSE)] }\OtherTok{\textless{}{-}} \StringTok{"OTHER"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#ploting various graphs and plots to decide the target varible , figure the relation with target variable}
+
+\CommentTok{\#Corelation graph Categorical vs Target variables}
+
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{CHK\_ACCT }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{CHK\_ACCT)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{HISTORY }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{HISTORY)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{SAV\_ACCT }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{SAV\_ACCT)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{EMPLOYMENT }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{EMPLOYMENT)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{RESPONSE }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{RESPONSE)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{PRESENT\_RESIDENT }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{PRESENT\_RESIDENT)}
+\NormalTok{gCred\_copy2}\SpecialCharTok{$}\NormalTok{JOB }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(gCred\_copy2}\SpecialCharTok{$}\NormalTok{JOB)}
+
+\NormalTok{df1 }\OtherTok{\textless{}{-}}\NormalTok{ gCred\_copy2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(CHK\_ACCT,HISTORY,SAV\_ACCT,EMPLOYMENT,}
+\NormalTok{                               PRESENT\_RESIDENT,JOB,RESPONSE))}
+\NormalTok{df1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1,000 x 7
+##    CHK_ACCT HISTORY SAV_ACCT EMPLOYMENT PRESENT_RESIDENT   JOB RESPONSE
+##       <dbl>   <dbl>    <dbl>      <dbl>            <dbl> <dbl>    <dbl>
+##  1        0       4        4          4                4     2        1
+##  2        1       2        0          2                2     2        0
+##  3        3       4        0          3                3     1        1
+##  4        0       2        0          3                4     2        1
+##  5        0       3        0          2                4     2        0
+##  6        3       2        4          2                4     1        1
+##  7        3       2        2          4                4     2        1
+##  8        1       2        0          2                2     3        1
+##  9        3       2        3          3                4     1        1
+## 10        1       4        0          0                2     3        0
+## # ... with 990 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df.cor }\OtherTok{=} \FunctionTok{cor}\NormalTok{(df1)}
+\FunctionTok{corrplot}\NormalTok{(df.cor)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa.cor.table}\NormalTok{(df1,}\StringTok{"APA correlation Table1.doc"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## 
+## Means, standard deviations, and correlations with confidence intervals
+##  
+## 
+##   Variable            M    SD   1           2           3           4         
+##   1. CHK_ACCT         1.58 1.26                                               
+##                                                                               
+##   2. HISTORY          2.54 1.08 .19**                                         
+##                                 [.13, .25]                                    
+##                                                                               
+##   3. SAV_ACCT         1.10 1.58 .22**       .04                               
+##                                 [.16, .28]  [-.02, .10]                       
+##                                                                               
+##   4. EMPLOYMENT       2.38 1.21 .11**       .14**       .12**                 
+##                                 [.04, .17]  [.08, .20]  [.06, .18]            
+##                                                                               
+##   5. PRESENT_RESIDENT 2.85 1.10 -.04        .06*        .09**       .25**     
+##                                 [-.10, .02] [.00, .12]  [.03, .15]  [.19, .30]
+##                                                                               
+##   6. JOB              1.90 0.65 .04         .01         .01         .10**     
+##                                 [-.02, .10] [-.05, .07] [-.05, .07] [.04, .16]
+##                                                                               
+##   7. RESPONSE         0.70 0.46 .35**       .23**       .18**       .12**     
+##                                 [.30, .40]  [.17, .29]  [.12, .24]  [.05, .18]
+##                                                                               
+##   5           6          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##                          
+##   .01                    
+##   [-.05, .07]            
+##                          
+##   -.00        -.03       
+##   [-.06, .06] [-.09, .03]
+##                          
+## 
+## Note. M and SD are used to represent mean and standard deviation, respectively.
+## Values in square brackets indicate the 95% confidence interval.
+## The confidence interval is a plausible range of population correlations 
+## that could have caused the sample correlation (Cumming, 2014).
+##  * indicates p < .05. ** indicates p < .01.
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Corelation graph Numerical vs Target variables}
+
+\NormalTok{df2 }\OtherTok{\textless{}{-}}\NormalTok{ gCred\_copy2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(DURATION,AMOUNT,INSTALL\_RATE,AGE,NUM\_CREDITS,}
+\NormalTok{                                NUM\_DEPENDENTS))}
+\NormalTok{df2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1,000 x 6
+##    DURATION AMOUNT INSTALL_RATE   AGE NUM_CREDITS NUM_DEPENDENTS
+##       <dbl>  <dbl>        <dbl> <dbl>       <dbl>          <dbl>
+##  1        6   1169            4    67           2              1
+##  2       48   5951            2    22           1              1
+##  3       12   2096            2    49           1              2
+##  4       42   7882            2    45           1              2
+##  5       24   4870            3    53           2              2
+##  6       36   9055            2    35           1              2
+##  7       24   2835            3    53           1              1
+##  8       36   6948            2    35           1              1
+##  9       12   3059            2    61           1              1
+## 10       30   5234            4    28           2              1
+## # ... with 990 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df.cor }\OtherTok{=} \FunctionTok{cor}\NormalTok{(df2)}
+\FunctionTok{corrplot}\NormalTok{(df.cor)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-8-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa.cor.table}\NormalTok{(df2,}\StringTok{"APA correlation Table2.doc"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## 
+## Means, standard deviations, and correlations with confidence intervals
+##  
+## 
+##   Variable          M       SD      1           2            3           
+##   1. DURATION       20.90   12.06                                        
+##                                                                          
+##   2. AMOUNT         3271.26 2822.74 .62**                                
+##                                     [.59, .66]                           
+##                                                                          
+##   3. INSTALL_RATE   2.97    1.12    .07*        -.27**                   
+##                                     [.01, .14]  [-.33, -.21]             
+##                                                                          
+##   4. AGE            35.55   11.38   -.04        .03          .06         
+##                                     [-.10, .03] [-.03, .09]  [-.00, .12] 
+##                                                                          
+##   5. NUM_CREDITS    1.41    0.58    -.01        .02          .02         
+##                                     [-.07, .05] [-.04, .08]  [-.04, .08] 
+##                                                                          
+##   6. NUM_DEPENDENTS 1.16    0.36    -.02        .02          -.07*       
+##                                     [-.09, .04] [-.04, .08]  [-.13, -.01]
+##                                                                          
+##   4          5         
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##                        
+##   .15**                
+##   [.09, .21]           
+##                        
+##   .12**      .11**     
+##   [.06, .18] [.05, .17]
+##                        
+## 
+## Note. M and SD are used to represent mean and standard deviation, respectively.
+## Values in square brackets indicate the 95% confidence interval.
+## The confidence interval is a plausible range of population correlations 
+## that could have caused the sample correlation (Cumming, 2014).
+##  * indicates p < .05. ** indicates p < .01.
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{JOB, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{RESPONSE)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{CHK\_ACCT, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{RESPONSE)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p1}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p2}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{HISTORY, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{RESPONSE)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p2}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p3}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{SAV\_ACCT, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{RESPONSE)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p3}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p4}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{EMPLOYMENT, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{EMPLOYMENT)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p4}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p5}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{gCred, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{PRESENT\_RESIDENT, }\AttributeTok{y=}\NormalTok{RESPONSE, }\AttributeTok{fill=}\NormalTok{RESPONSE)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\NormalTok{p5}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-9-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(gCred)}
+\FunctionTok{plot}\NormalTok{(RESPONSE, AGE, }\AttributeTok{main=}\StringTok{"Age vs Response"}\NormalTok{,}
+     \AttributeTok{xlab=}\StringTok{"Age "}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Response"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(gCred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following objects are masked from gCred (pos = 3):
+## 
+##     AGE, AMOUNT, CHK_ACCT, CO-APPLICANT, DURATION, EDUCATION,
+##     EMPLOYMENT, FOREIGN, FURNITURE, GUARANTOR, HISTORY, INSTALL_RATE,
+##     JOB, MALE_DIV, MALE_MAR_or_WID, MALE_SINGLE, NEW_CAR, NUM_CREDITS,
+##     NUM_DEPENDENTS, OBS#, OTHER_INSTALL, OWN_RES, PRESENT_RESIDENT,
+##     PROP_UNKN_NONE, RADIO/TV, REAL_ESTATE, RENT, RESPONSE, RETRAINING,
+##     SAV_ACCT, TELEPHONE, USED_CAR
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(RESPONSE, CHK\_ACCT, }\AttributeTok{main=}\StringTok{"CHK\_ACCT vs Response"}\NormalTok{,}
+     \AttributeTok{xlab=}\StringTok{"Response "}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"CHK\_ACCT"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-10-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#good vs bad plot\#\#\#\#}
+\NormalTok{good }\OtherTok{=}\NormalTok{ gCred[}\FunctionTok{which}\NormalTok{(gCred[,}\DecValTok{32}\NormalTok{]}\SpecialCharTok{==}\StringTok{\textquotesingle{}Good\textquotesingle{}}\NormalTok{),]}
+\NormalTok{bad }\OtherTok{=}\NormalTok{ gCred[}\FunctionTok{which}\NormalTok{(gCred[,}\DecValTok{32}\NormalTok{]}\SpecialCharTok{==}\StringTok{"Bad"}\NormalTok{),]}
+\NormalTok{bad}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 300 x 32
+##    `OBS#` CHK_ACCT DURATION HISTORY NEW_CAR USED_CAR FURNITURE `RADIO/TV`
+##    <fct>     <dbl>    <dbl>   <dbl> <fct>   <fct>    <fct>     <fct>     
+##  1 2             1       48       2 0       0        0         1         
+##  2 5             0       24       3 1       0        0         0         
+##  3 10            1       30       4 1       0        0         0         
+##  4 11            1       12       2 1       0        0         0         
+##  5 12            0       48       2 0       0        0         0         
+##  6 14            0       24       4 1       0        0         0         
+##  7 16            0       24       2 0       0        0         1         
+##  8 19            1       24       2 0       1        0         0         
+##  9 30            0       60       3 0       0        0         0         
+## 10 36            1       45       4 0       0        0         1         
+## # ... with 290 more rows, and 24 more variables: EDUCATION <fct>,
+## #   RETRAINING <fct>, AMOUNT <dbl>, SAV_ACCT <dbl>, EMPLOYMENT <fct>,
+## #   INSTALL_RATE <dbl>, MALE_DIV <fct>, MALE_SINGLE <fct>,
+## #   MALE_MAR_or_WID <fct>, `CO-APPLICANT` <fct>, GUARANTOR <fct>,
+## #   PRESENT_RESIDENT <dbl>, REAL_ESTATE <fct>, PROP_UNKN_NONE <fct>, AGE <dbl>,
+## #   OTHER_INSTALL <fct>, RENT <fct>, OWN_RES <fct>, NUM_CREDITS <dbl>,
+## #   JOB <dbl>, NUM_DEPENDENTS <dbl>, TELEPHONE <fct>, FOREIGN <fct>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g }\OtherTok{\textless{}{-}}\NormalTok{ good[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 700 x 1
+##    `OBS#`
+##    <fct> 
+##  1 1     
+##  2 3     
+##  3 4     
+##  4 6     
+##  5 7     
+##  6 8     
+##  7 9     
+##  8 13    
+##  9 15    
+## 10 17    
+## # ... with 690 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#g \textless{}{-} as.numeric(g)}
+\FunctionTok{plot}\NormalTok{(gCred[,}\DecValTok{32}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-10-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{y=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(good[,}\DecValTok{11}\NormalTok{])),}
+    \AttributeTok{x=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(good[,}\DecValTok{3}\NormalTok{])),}\AttributeTok{pch=}\DecValTok{1}\NormalTok{,}
+    \AttributeTok{xlab=}\StringTok{"Duration(months)"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"credit amount"}\NormalTok{,}\AttributeTok{main=}\StringTok{"Good Credit vs Duration"}\NormalTok{)}
+\FunctionTok{points}\NormalTok{(}\AttributeTok{y=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(bad[,}\DecValTok{11}\NormalTok{])),}
+\AttributeTok{x=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(bad[,}\DecValTok{3}\NormalTok{])),}\AttributeTok{pch=}\DecValTok{3}\NormalTok{,}
+\AttributeTok{xlab=}\StringTok{"Duration (months)"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"credit amount"}\NormalTok{,}\AttributeTok{main=}\StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\AttributeTok{y=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(bad[,}\DecValTok{11}\NormalTok{])),}
+    \AttributeTok{x=}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(bad[,}\DecValTok{3}\NormalTok{])),}\AttributeTok{pch=}\DecValTok{3}\NormalTok{,}
+    \AttributeTok{xlab=}\StringTok{"Duration"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{"credit amount"}\NormalTok{,}\AttributeTok{main=}\StringTok{"Bad Credit vs Duration"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-11-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(good[,}\DecValTok{23}\NormalTok{])),}\AttributeTok{xlab=}\StringTok{"age"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{""}\NormalTok{,}\AttributeTok{main=}\StringTok{"Good Credit Vs Age"}\NormalTok{,}
+     \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{160}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(bad[,}\DecValTok{23}\NormalTok{])),}\AttributeTok{xlab=}\StringTok{"age"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{""}\NormalTok{,}\AttributeTok{main=}\StringTok{"Bad Credit Vs Age"}\NormalTok{,}
+     \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{160}\NormalTok{))}
+
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(gCred[,}\DecValTok{23}\NormalTok{])),}\AttributeTok{xlab=}\StringTok{"age"}\NormalTok{,}\AttributeTok{ylab=}\StringTok{""}\NormalTok{,}\AttributeTok{main=}\StringTok{"Response vs Age"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#te")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ gCred[}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{134}\NormalTok{)}
+\DocumentationTok{\#\# sampling it for 70 \% and 30\%}
+\NormalTok{indx }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{2}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(data) , }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=} \FunctionTok{c}\NormalTok{(}\FloatTok{0.7}\NormalTok{,}\FloatTok{0.3}\NormalTok{)) }
+
+\DocumentationTok{\#\#train and test data}
+\NormalTok{train }\OtherTok{\textless{}{-}}\NormalTok{ data[indx }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, ]}
+\FunctionTok{nrow}\NormalTok{(train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 708
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test }\OtherTok{\textless{}{-}}\NormalTok{ data [indx }\SpecialCharTok{==}\DecValTok{2}\NormalTok{,]}
+\FunctionTok{nrow}\NormalTok{(test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 292
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Ratio test and train}
+\FunctionTok{nrow}\NormalTok{(train)}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.708
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# create tree for Response Target variable and all other variables\#\#}
+\FunctionTok{library}\NormalTok{(rpart)}
+\NormalTok{myFormula }\OtherTok{=}\NormalTok{ RESPONSE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .}
+\NormalTok{mytree  }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }\AttributeTok{data =}\NormalTok{ train)  }\CommentTok{\#assign the formula to a variable}
+\FunctionTok{print}\NormalTok{(mytree)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## n= 708 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+##    1) root 708 215 Good (0.30367232 0.69632768)  
+##      2) CHK_ACCT< 1.5 382 168 Good (0.43979058 0.56020942)  
+##        4) DURATION>=22.5 168  71 Bad (0.57738095 0.42261905)  
+##          8) USED_CAR=0 149  56 Bad (0.62416107 0.37583893)  
+##           16) SAV_ACCT< 2.5 124  39 Bad (0.68548387 0.31451613)  
+##             32) DURATION>=47.5 23   2 Bad (0.91304348 0.08695652) *
+##             33) DURATION< 47.5 101  37 Bad (0.63366337 0.36633663)  
+##               66) AMOUNT< 2313 28   6 Bad (0.78571429 0.21428571) *
+##               67) AMOUNT>=2313 73  31 Bad (0.57534247 0.42465753)  
+##                134) TELEPHONE=1 36  11 Bad (0.69444444 0.30555556) *
+##                135) TELEPHONE=0 37  17 Good (0.45945946 0.54054054)  
+##                  270) AMOUNT< 5275 29  13 Bad (0.55172414 0.44827586)  
+##                    540) AMOUNT>=4235 8   1 Bad (0.87500000 0.12500000) *
+##                    541) AMOUNT< 4235 21   9 Good (0.42857143 0.57142857)  
+##                     1082) FURNITURE=1 10   3 Bad (0.70000000 0.30000000) *
+##                     1083) FURNITURE=0 11   2 Good (0.18181818 0.81818182) *
+##                  271) AMOUNT>=5275 8   1 Good (0.12500000 0.87500000) *
+##           17) SAV_ACCT>=2.5 25   8 Good (0.32000000 0.68000000)  
+##             34) CHK_ACCT< 0.5 10   3 Bad (0.70000000 0.30000000) *
+##             35) CHK_ACCT>=0.5 15   1 Good (0.06666667 0.93333333) *
+##          9) USED_CAR=1 19   4 Good (0.21052632 0.78947368) *
+##        5) DURATION< 22.5 214  71 Good (0.33177570 0.66822430)  
+##         10) HISTORY< 1.5 22   7 Bad (0.68181818 0.31818182) *
+##         11) HISTORY>=1.5 192  56 Good (0.29166667 0.70833333)  
+##           22) DURATION>=11.5 137  49 Good (0.35766423 0.64233577)  
+##             44) AMOUNT< 1288.5 46  22 Bad (0.52173913 0.47826087)  
+##               88) NEW_CAR=1 13   3 Bad (0.76923077 0.23076923) *
+##               89) NEW_CAR=0 33  14 Good (0.42424242 0.57575758)  
+##                178) CHK_ACCT< 0.5 22   9 Bad (0.59090909 0.40909091)  
+##                  356) FURNITURE=0 15   4 Bad (0.73333333 0.26666667) *
+##                  357) FURNITURE=1 7   2 Good (0.28571429 0.71428571) *
+##                179) CHK_ACCT>=0.5 11   1 Good (0.09090909 0.90909091) *
+##             45) AMOUNT>=1288.5 91  25 Good (0.27472527 0.72527473)  
+##               90) EMPLOYMENT=1,2,4 71  23 Good (0.32394366 0.67605634)  
+##                180) AMOUNT>=1870 47  20 Good (0.42553191 0.57446809)  
+##                  360) CHK_ACCT< 0.5 26  11 Bad (0.57692308 0.42307692)  
+##                    720) JOB>=1.5 19   5 Bad (0.73684211 0.26315789) *
+##                    721) JOB< 1.5 7   1 Good (0.14285714 0.85714286) *
+##                  361) CHK_ACCT>=0.5 21   5 Good (0.23809524 0.76190476) *
+##                181) AMOUNT< 1870 24   3 Good (0.12500000 0.87500000) *
+##               91) EMPLOYMENT=0,3 20   2 Good (0.10000000 0.90000000) *
+##           23) DURATION< 11.5 55   7 Good (0.12727273 0.87272727) *
+##      3) CHK_ACCT>=1.5 326  47 Good (0.14417178 0.85582822) *
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("rpart.plot")}
+\FunctionTok{library}\NormalTok{(rpart.plot)}
+
+\DocumentationTok{\#\# train data error rate}
+\FunctionTok{rpart.plot}\NormalTok{(mytree)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rpart.plot)}
+\DocumentationTok{\#\#predict(mytree, data = train, type = "class")}
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree, }\AttributeTok{data =}\NormalTok{ train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.170904
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# test data error rate}
+
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree, }\AttributeTok{newdata =}\NormalTok{ test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2534247
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(mytree)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## n= 708 
+## 
+## node), split, n, loss, yval, (yprob)
+##       * denotes terminal node
+## 
+##    1) root 708 215 Good (0.30367232 0.69632768)  
+##      2) CHK_ACCT< 1.5 382 168 Good (0.43979058 0.56020942)  
+##        4) DURATION>=22.5 168  71 Bad (0.57738095 0.42261905)  
+##          8) USED_CAR=0 149  56 Bad (0.62416107 0.37583893)  
+##           16) SAV_ACCT< 2.5 124  39 Bad (0.68548387 0.31451613)  
+##             32) DURATION>=47.5 23   2 Bad (0.91304348 0.08695652) *
+##             33) DURATION< 47.5 101  37 Bad (0.63366337 0.36633663)  
+##               66) AMOUNT< 2313 28   6 Bad (0.78571429 0.21428571) *
+##               67) AMOUNT>=2313 73  31 Bad (0.57534247 0.42465753)  
+##                134) TELEPHONE=1 36  11 Bad (0.69444444 0.30555556) *
+##                135) TELEPHONE=0 37  17 Good (0.45945946 0.54054054)  
+##                  270) AMOUNT< 5275 29  13 Bad (0.55172414 0.44827586)  
+##                    540) AMOUNT>=4235 8   1 Bad (0.87500000 0.12500000) *
+##                    541) AMOUNT< 4235 21   9 Good (0.42857143 0.57142857)  
+##                     1082) FURNITURE=1 10   3 Bad (0.70000000 0.30000000) *
+##                     1083) FURNITURE=0 11   2 Good (0.18181818 0.81818182) *
+##                  271) AMOUNT>=5275 8   1 Good (0.12500000 0.87500000) *
+##           17) SAV_ACCT>=2.5 25   8 Good (0.32000000 0.68000000)  
+##             34) CHK_ACCT< 0.5 10   3 Bad (0.70000000 0.30000000) *
+##             35) CHK_ACCT>=0.5 15   1 Good (0.06666667 0.93333333) *
+##          9) USED_CAR=1 19   4 Good (0.21052632 0.78947368) *
+##        5) DURATION< 22.5 214  71 Good (0.33177570 0.66822430)  
+##         10) HISTORY< 1.5 22   7 Bad (0.68181818 0.31818182) *
+##         11) HISTORY>=1.5 192  56 Good (0.29166667 0.70833333)  
+##           22) DURATION>=11.5 137  49 Good (0.35766423 0.64233577)  
+##             44) AMOUNT< 1288.5 46  22 Bad (0.52173913 0.47826087)  
+##               88) NEW_CAR=1 13   3 Bad (0.76923077 0.23076923) *
+##               89) NEW_CAR=0 33  14 Good (0.42424242 0.57575758)  
+##                178) CHK_ACCT< 0.5 22   9 Bad (0.59090909 0.40909091)  
+##                  356) FURNITURE=0 15   4 Bad (0.73333333 0.26666667) *
+##                  357) FURNITURE=1 7   2 Good (0.28571429 0.71428571) *
+##                179) CHK_ACCT>=0.5 11   1 Good (0.09090909 0.90909091) *
+##             45) AMOUNT>=1288.5 91  25 Good (0.27472527 0.72527473)  
+##               90) EMPLOYMENT=1,2,4 71  23 Good (0.32394366 0.67605634)  
+##                180) AMOUNT>=1870 47  20 Good (0.42553191 0.57446809)  
+##                  360) CHK_ACCT< 0.5 26  11 Bad (0.57692308 0.42307692)  
+##                    720) JOB>=1.5 19   5 Bad (0.73684211 0.26315789) *
+##                    721) JOB< 1.5 7   1 Good (0.14285714 0.85714286) *
+##                  361) CHK_ACCT>=0.5 21   5 Good (0.23809524 0.76190476) *
+##                181) AMOUNT< 1870 24   3 Good (0.12500000 0.87500000) *
+##               91) EMPLOYMENT=0,3 20   2 Good (0.10000000 0.90000000) *
+##           23) DURATION< 11.5 55   7 Good (0.12727273 0.87272727) *
+##      3) CHK_ACCT>=1.5 326  47 Good (0.14417178 0.85582822) *
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Split = Gini mini split = 10, minibucket =10 }
+
+\NormalTok{mytree2 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }
+\AttributeTok{data =}\NormalTok{ train,}\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"gini"}\NormalTok{),  }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{rpart.plot}\NormalTok{(mytree2)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-15-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#          \#\#Training Error }
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree2, }\AttributeTok{data=}\NormalTok{train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"gini"}\NormalTok{),  }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2062147
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\# Test Error}
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree2, }\AttributeTok{newdata=}\NormalTok{test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"gini"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2363014
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Split = Information Gain mini split = 10, minibucket =10 }
+
+\NormalTok{mytree3 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }
+\AttributeTok{data =}\NormalTok{ train,}\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{rpart.plot}\NormalTok{(mytree3)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\#Training Error }
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree3, }\AttributeTok{data=}\NormalTok{train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2217514
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\# Test Error}
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree3, }\AttributeTok{newdata=}\NormalTok{test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{))}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Varying Cp={-}1 and Max Depth =1\#\#\#\#\#\#}
+\NormalTok{mytree4 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }
+\AttributeTok{data =}\NormalTok{ train,}\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{rpart.plot}\NormalTok{(mytree4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: labs do not fit even at cex 0.15, there may be some overplotting
+\end{verbatim}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\#Training Error }
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree4, }\AttributeTok{data=}\NormalTok{train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1737288
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\# Test Error}
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree4, }\AttributeTok{newdata=}\NormalTok{test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2876712
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# Although the training error improved 18\% the test error increased to 30\%}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mytree5 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }
+\AttributeTok{data =}\NormalTok{ train,}\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{10}\NormalTok{)))}
+\FunctionTok{rpart.plot}\NormalTok{(mytree5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: labs do not fit even at cex 0.15, there may be some overplotting
+\end{verbatim}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\#Training Error }
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree5, }\AttributeTok{data=}\NormalTok{train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{10}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1737288
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\# Test Error}
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree5, }\AttributeTok{newdata=}\NormalTok{test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{10}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{10}\NormalTok{, }\AttributeTok{cp=}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{10}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2876712
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# Although the training error improved 18\% the test error increased to 30\%}
+
+\DocumentationTok{\#\# Best way for selecting the pruning parameter Cp}
+
+\FunctionTok{summary}\NormalTok{(mytree5) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## rpart(formula = myFormula, data = train, method = "class", parms = list(split = "information"), 
+##     control = rpart.control(minsplit = 10, minbucket = 10, cp = -1, 
+##         list(maxdepth = 10)))
+##   n= 708 
+## 
+##             CP nsplit rel error    xerror       xstd
+## 1  0.037209302      0 1.0000000 1.0000000 0.05690987
+## 2  0.018604651      5 0.7813953 0.8837209 0.05483863
+## 3  0.016279070      6 0.7627907 0.8883721 0.05492965
+## 4  0.009302326      8 0.7302326 0.9441860 0.05596785
+## 5  0.007751938     13 0.6744186 0.9395349 0.05588508
+## 6  0.004651163     18 0.6186047 0.9767442 0.05652873
+## 7  0.000000000     28 0.5720930 1.0883721 0.05821595
+## 8 -1.000000000     46 0.5720930 1.0883721 0.05821595
+## 
+## Variable importance
+##         CHK_ACCT         DURATION           AMOUNT          HISTORY 
+##               19               15               12                9 
+##              AGE         SAV_ACCT PRESENT_RESIDENT       EMPLOYMENT 
+##                6                5                4                4 
+##      NUM_CREDITS         RADIO/TV    OTHER_INSTALL     INSTALL_RATE 
+##                4                4                3                3 
+##         USED_CAR   PROP_UNKN_NONE              JOB      REAL_ESTATE 
+##                2                1                1                1 
+##       RETRAINING             RENT          FOREIGN        FURNITURE 
+##                1                1                1                1 
+##        GUARANTOR 
+##                1 
+## 
+## Node number 1: 708 observations,    complexity param=0.0372093
+##   predicted class=Good  expected loss=0.3036723  P(node) =1
+##     class counts:   215   493
+##    probabilities: 0.304 0.696 
+##   left son=2 (431 obs) right son=3 (277 obs)
+##   Primary splits:
+##       CHK_ACCT      < 2.5    to the left,  improve=38.330160, (0 missing)
+##       HISTORY       < 3.5    to the left,  improve=14.470800, (0 missing)
+##       DURATION      < 16.5   to the right, improve=14.274040, (0 missing)
+##       SAV_ACCT      < 1.5    to the left,  improve=10.754010, (0 missing)
+##       AMOUNT        < 3913.5 to the right, improve= 9.499769, (0 missing)
+##       RADIO/TV      splits as  LR,         improve= 5.870030, (0 missing)
+##       REAL_ESTATE   splits as  LR,         improve= 5.527655, (0 missing)
+##       OTHER_INSTALL splits as  RL,         improve= 5.082483, (0 missing)
+##       AGE           < 34.5   to the left,  improve= 4.487641, (0 missing)
+##       USED_CAR      splits as  LR,         improve= 4.482713, (0 missing)
+##       EMPLOYMENT    splits as  LLLRR,      improve= 4.281992, (0 missing)
+##   Surrogate splits:
+##       SAV_ACCT    < 1.5    to the left,  agree=0.645, adj=0.094, (0 split)
+##       DURATION    < 5      to the right, agree=0.614, adj=0.014, (0 split)
+##       HISTORY     < 3.5    to the left,  agree=0.610, adj=0.004, (0 split)
+##       NUM_CREDITS < 2.5    to the left,  agree=0.610, adj=0.004, (0 split)
+## 
+## Node number 2: 431 observations,    complexity param=0.0372093
+##   predicted class=Good  expected loss=0.4199536  P(node) =0.6087571
+##     class counts:   181   250
+##    probabilities: 0.420 0.580 
+##   left son=4 (194 obs) right son=5 (237 obs)
+##   Primary splits:
+##       DURATION       < 20.5   to the right, improve=10.700970, (0 missing)
+##       HISTORY        < 1.5    to the left,  improve= 6.568110, (0 missing)
+##       PROP_UNKN_NONE splits as  RL,         improve= 5.071209, (0 missing)
+##       REAL_ESTATE    splits as  LR,         improve= 4.869811, (0 missing)
+##       SAV_ACCT       < 1.5    to the left,  improve= 4.823341, (0 missing)
+##       AMOUNT         < 11849  to the right, improve= 3.776263, (0 missing)
+##       GUARANTOR      splits as  LR,         improve= 3.764327, (0 missing)
+##       INSTALL_RATE   < 3.5    to the right, improve= 3.320785, (0 missing)
+##       EDUCATION      splits as  RL,         improve= 3.068426, (0 missing)
+##       CHK_ACCT       < 1.5    to the left,  improve= 2.845367, (0 missing)
+##       FOREIGN        splits as  LR,         improve= 2.765505, (0 missing)
+##   Surrogate splits:
+##       AMOUNT         < 2290   to the right, agree=0.745, adj=0.433, (0 split)
+##       PROP_UNKN_NONE splits as  RL,         agree=0.613, adj=0.139, (0 split)
+##       REAL_ESTATE    splits as  LR,         agree=0.608, adj=0.129, (0 split)
+##       RETRAINING     splits as  RL,         agree=0.575, adj=0.057, (0 split)
+##       EMPLOYMENT     splits as  RRRLR,      agree=0.575, adj=0.057, (0 split)
+## 
+## Node number 3: 277 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.1227437  P(node) =0.3912429
+##     class counts:    34   243
+##    probabilities: 0.123 0.877 
+##   left son=6 (43 obs) right son=7 (234 obs)
+##   Primary splits:
+##       OTHER_INSTALL    splits as  RL,         improve=7.697809, (0 missing)
+##       EMPLOYMENT       splits as  LLLRR,      improve=7.089412, (0 missing)
+##       AMOUNT           < 3891   to the right, improve=6.764779, (0 missing)
+##       HISTORY          < 3.5    to the left,  improve=6.092193, (0 missing)
+##       RETRAINING       splits as  RL,         improve=6.059448, (0 missing)
+##       RADIO/TV         splits as  LR,         improve=5.232175, (0 missing)
+##       DURATION         < 16.5   to the right, improve=4.112259, (0 missing)
+##       AGE              < 31.5   to the left,  improve=2.264037, (0 missing)
+##       PRESENT_RESIDENT < 2.5    to the left,  improve=1.461898, (0 missing)
+##       RENT             splits as  RL,         improve=1.376793, (0 missing)
+##       EDUCATION        splits as  RL,         improve=1.039885, (0 missing)
+##   Surrogate splits:
+##       HISTORY  < 1.5    to the left,  agree=0.870, adj=0.163, (0 split)
+##       DURATION < 43.5   to the right, agree=0.852, adj=0.047, (0 split)
+## 
+## Node number 4: 194 observations,    complexity param=0.0372093
+##   predicted class=Bad   expected loss=0.4587629  P(node) =0.2740113
+##     class counts:   105    89
+##    probabilities: 0.541 0.459 
+##   left son=8 (174 obs) right son=9 (20 obs)
+##   Primary splits:
+##       USED_CAR     splits as  LR,         improve=5.457050, (0 missing)
+##       SAV_ACCT     < 2.5    to the left,  improve=4.596892, (0 missing)
+##       DURATION     < 47.5   to the right, improve=3.835688, (0 missing)
+##       CHK_ACCT     < 1.5    to the left,  improve=3.619305, (0 missing)
+##       HISTORY      < 2.5    to the left,  improve=2.759048, (0 missing)
+##       AMOUNT       < 2321   to the left,  improve=2.635029, (0 missing)
+##       INSTALL_RATE < 2.5    to the right, improve=2.497005, (0 missing)
+##       EDUCATION    splits as  RL,         improve=1.551565, (0 missing)
+##       EMPLOYMENT   splits as  RLRRR,      improve=1.176301, (0 missing)
+##       AGE          < 23.5   to the left,  improve=1.169087, (0 missing)
+##       RENT         splits as  RL,         improve=1.039573, (0 missing)
+##   Surrogate splits:
+##       NUM_CREDITS < 2.5    to the left,  agree=0.902, adj=0.05, (0 split)
+## 
+## Node number 5: 237 observations,    complexity param=0.0372093
+##   predicted class=Good  expected loss=0.3206751  P(node) =0.3347458
+##     class counts:    76   161
+##    probabilities: 0.321 0.679 
+##   left son=10 (24 obs) right son=11 (213 obs)
+##   Primary splits:
+##       HISTORY        < 1.5    to the left,  improve=6.774521, (0 missing)
+##       DURATION       < 8.5    to the right, improve=5.330742, (0 missing)
+##       GUARANTOR      splits as  LR,         improve=3.905204, (0 missing)
+##       PROP_UNKN_NONE splits as  RL,         improve=3.764997, (0 missing)
+##       AMOUNT         < 1285   to the left,  improve=3.384240, (0 missing)
+##       RETRAINING     splits as  LR,         improve=3.025286, (0 missing)
+##       AGE            < 34.5   to the left,  improve=2.659145, (0 missing)
+##       REAL_ESTATE    splits as  LR,         improve=2.293106, (0 missing)
+##       MALE_SINGLE    splits as  LR,         improve=2.048824, (0 missing)
+##       SAV_ACCT       < 1.5    to the left,  improve=1.850596, (0 missing)
+##       INSTALL_RATE   < 3.5    to the right, improve=1.580196, (0 missing)
+## 
+## Node number 6: 43 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.3255814  P(node) =0.06073446
+##     class counts:    14    29
+##    probabilities: 0.326 0.674 
+##   left son=12 (32 obs) right son=13 (11 obs)
+##   Primary splits:
+##       RADIO/TV         splits as  LR,         improve=5.20316900, (0 missing)
+##       DURATION         < 16.5   to the right, improve=2.12167900, (0 missing)
+##       AMOUNT           < 1784.5 to the right, improve=2.12167900, (0 missing)
+##       EMPLOYMENT       splits as  LRLRR,      improve=1.70799300, (0 missing)
+##       PRESENT_RESIDENT < 2.5    to the left,  improve=0.72329010, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=0.30535710, (0 missing)
+##       INSTALL_RATE     < 3.5    to the left,  improve=0.30535710, (0 missing)
+##       AGE              < 35.5   to the right, improve=0.28091780, (0 missing)
+##       OWN_RES          splits as  LR,         improve=0.16057500, (0 missing)
+##       TELEPHONE        splits as  RL,         improve=0.14048900, (0 missing)
+##       HISTORY          < 3.5    to the left,  improve=0.09601479, (0 missing)
+##   Surrogate splits:
+##       AMOUNT          < 9256.5 to the left,  agree=0.767, adj=0.091, (0 split)
+##       MALE_MAR_or_WID splits as  LR,         agree=0.767, adj=0.091, (0 split)
+## 
+## Node number 7: 234 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.08547009  P(node) =0.3305085
+##     class counts:    20   214
+##    probabilities: 0.085 0.915 
+## 
+## Node number 8: 174 observations,    complexity param=0.0372093
+##   predicted class=Bad   expected loss=0.4195402  P(node) =0.2457627
+##     class counts:   101    73
+##    probabilities: 0.580 0.420 
+##   left son=16 (143 obs) right son=17 (31 obs)
+##   Primary splits:
+##       SAV_ACCT       < 2.5    to the left,  improve=5.118236, (0 missing)
+##       CHK_ACCT       < 1.5    to the left,  improve=3.967804, (0 missing)
+##       DURATION       < 47.5   to the right, improve=2.725789, (0 missing)
+##       INSTALL_RATE   < 2.5    to the right, improve=2.276251, (0 missing)
+##       HISTORY        < 2.5    to the left,  improve=1.972577, (0 missing)
+##       PROP_UNKN_NONE splits as  RL,         improve=1.743164, (0 missing)
+##       OWN_RES        splits as  LR,         improve=1.554959, (0 missing)
+##       AMOUNT         < 2321   to the left,  improve=1.499081, (0 missing)
+##       AGE            < 23.5   to the left,  improve=1.124199, (0 missing)
+##       EDUCATION      splits as  RL,         improve=1.099036, (0 missing)
+##       RENT           splits as  RL,         improve=1.029749, (0 missing)
+## 
+## Node number 9: 20 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.2  P(node) =0.02824859
+##     class counts:     4    16
+##    probabilities: 0.200 0.800 
+## 
+## Node number 10: 24 observations,    complexity param=0
+##   predicted class=Bad   expected loss=0.3333333  P(node) =0.03389831
+##     class counts:    16     8
+##    probabilities: 0.667 0.333 
+## 
+## Node number 11: 213 observations,    complexity param=0.009302326
+##   predicted class=Good  expected loss=0.2816901  P(node) =0.3008475
+##     class counts:    60   153
+##    probabilities: 0.282 0.718 
+##   left son=22 (184 obs) right son=23 (29 obs)
+##   Primary splits:
+##       DURATION       < 7.5    to the right, improve=6.853450, (0 missing)
+##       RETRAINING     splits as  LR,         improve=4.464695, (0 missing)
+##       AMOUNT         < 670    to the right, improve=4.464695, (0 missing)
+##       GUARANTOR      splits as  LR,         improve=2.943429, (0 missing)
+##       MALE_SINGLE    splits as  LR,         improve=2.618055, (0 missing)
+##       PROP_UNKN_NONE splits as  RL,         improve=2.522509, (0 missing)
+##       AGE            < 22.5   to the left,  improve=1.847132, (0 missing)
+##       REAL_ESTATE    splits as  LR,         improve=1.245788, (0 missing)
+##       HISTORY        < 2.5    to the left,  improve=1.234625, (0 missing)
+##       EMPLOYMENT     splits as  LRLRL,      improve=1.182905, (0 missing)
+##       SAV_ACCT       < 1.5    to the left,  improve=1.133638, (0 missing)
+##   Surrogate splits:
+##       AMOUNT < 617    to the right, agree=0.887, adj=0.172, (0 split)
+## 
+## Node number 12: 32 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.4375  P(node) =0.04519774
+##     class counts:    14    18
+##    probabilities: 0.437 0.562 
+##   left son=24 (22 obs) right son=25 (10 obs)
+##   Primary splits:
+##       DURATION         < 16.5   to the right, improve=1.767827000, (0 missing)
+##       AMOUNT           < 3761.5 to the right, improve=1.418993000, (0 missing)
+##       EMPLOYMENT       splits as  LRLRR,      improve=1.027645000, (0 missing)
+##       SAV_ACCT         < 2.5    to the left,  improve=0.572173600, (0 missing)
+##       AGE              < 39.5   to the left,  improve=0.572173600, (0 missing)
+##       PRESENT_RESIDENT < 2.5    to the left,  improve=0.328813500, (0 missing)
+##       INSTALL_RATE     < 3.5    to the left,  improve=0.124966400, (0 missing)
+##       OWN_RES          splits as  RL,         improve=0.041734720, (0 missing)
+##       NUM_DEPENDENTS   < 1.5    to the left,  improve=0.041734720, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.016959170, (0 missing)
+##       TELEPHONE        splits as  LR,         improve=0.004032788, (0 missing)
+##   Surrogate splits:
+##       AMOUNT      < 1461.5 to the right, agree=0.844, adj=0.5, (0 split)
+##       EMPLOYMENT  splits as  LLLLR,      agree=0.781, adj=0.3, (0 split)
+##       JOB         < 1.5    to the right, agree=0.781, adj=0.3, (0 split)
+##       AGE         < 26.5   to the right, agree=0.750, adj=0.2, (0 split)
+##       NUM_CREDITS < 2.5    to the left,  agree=0.750, adj=0.2, (0 split)
+## 
+## Node number 13: 11 observations
+##   predicted class=Good  expected loss=0  P(node) =0.01553672
+##     class counts:     0    11
+##    probabilities: 0.000 1.000 
+## 
+## Node number 16: 143 observations,    complexity param=0.01627907
+##   predicted class=Bad   expected loss=0.3636364  P(node) =0.2019774
+##     class counts:    91    52
+##    probabilities: 0.636 0.364 
+##   left son=32 (23 obs) right son=33 (120 obs)
+##   Primary splits:
+##       DURATION         < 47.5   to the right, improve=5.4356000, (0 missing)
+##       CHK_ACCT         < 1.5    to the left,  improve=4.9195250, (0 missing)
+##       PROP_UNKN_NONE   splits as  RL,         improve=1.9827840, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=1.8335200, (0 missing)
+##       OWN_RES          splits as  LR,         improve=1.8304650, (0 missing)
+##       RENT             splits as  RL,         improve=1.6133340, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the right, improve=1.2265790, (0 missing)
+##       AMOUNT           < 4235   to the right, improve=1.0622560, (0 missing)
+##       HISTORY          < 1.5    to the left,  improve=0.8855099, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=0.5519654, (0 missing)
+##       NUM_DEPENDENTS   < 1.5    to the right, improve=0.4813928, (0 missing)
+##   Surrogate splits:
+##       AMOUNT < 14550  to the right, agree=0.853, adj=0.087, (0 split)
+## 
+## Node number 17: 31 observations,    complexity param=0.01860465
+##   predicted class=Good  expected loss=0.3225806  P(node) =0.04378531
+##     class counts:    10    21
+##    probabilities: 0.323 0.677 
+##   left son=34 (12 obs) right son=35 (19 obs)
+##   Primary splits:
+##       CHK_ACCT     < 0.5    to the left,  improve=5.46119200, (0 missing)
+##       HISTORY      < 2.5    to the left,  improve=2.90728100, (0 missing)
+##       AMOUNT       < 2257   to the left,  improve=2.53749800, (0 missing)
+##       INSTALL_RATE < 3.5    to the right, improve=1.54627400, (0 missing)
+##       NEW_CAR      splits as  RL,         improve=1.03494700, (0 missing)
+##       NUM_CREDITS  < 1.5    to the left,  improve=0.81701540, (0 missing)
+##       EMPLOYMENT   splits as  RRLRL,      improve=0.53365980, (0 missing)
+##       TELEPHONE    splits as  LR,         improve=0.40024390, (0 missing)
+##       AGE          < 36.5   to the right, improve=0.39211360, (0 missing)
+##       DURATION     < 27     to the left,  improve=0.07978494, (0 missing)
+##       MALE_SINGLE  splits as  RL,         improve=0.07978494, (0 missing)
+##   Surrogate splits:
+##       HISTORY    < 2.5    to the left,  agree=0.710, adj=0.250, (0 split)
+##       AMOUNT     < 1806   to the left,  agree=0.710, adj=0.250, (0 split)
+##       EMPLOYMENT splits as  RRRRL,      agree=0.677, adj=0.167, (0 split)
+##       AGE        < 53     to the right, agree=0.677, adj=0.167, (0 split)
+##       FOREIGN    splits as  RL,         agree=0.677, adj=0.167, (0 split)
+## 
+## Node number 22: 184 observations,    complexity param=0.009302326
+##   predicted class=Good  expected loss=0.3206522  P(node) =0.259887
+##     class counts:    59   125
+##    probabilities: 0.321 0.679 
+##   left son=44 (65 obs) right son=45 (119 obs)
+##   Primary splits:
+##       AMOUNT           < 1285   to the left,  improve=5.523187, (0 missing)
+##       RETRAINING       splits as  LR,         improve=4.834736, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=2.919044, (0 missing)
+##       GUARANTOR        splits as  LR,         improve=2.683925, (0 missing)
+##       PROP_UNKN_NONE   splits as  RL,         improve=2.185213, (0 missing)
+##       AGE              < 22.5   to the left,  improve=1.581414, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the left,  improve=1.380975, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=1.366676, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=1.274874, (0 missing)
+##       DURATION         < 11.5   to the right, improve=1.224345, (0 missing)
+##       EMPLOYMENT       splits as  LLLRL,      improve=1.039400, (0 missing)
+##   Surrogate splits:
+##       EDUCATION   splits as  RL,         agree=0.668, adj=0.062, (0 split)
+##       AGE         < 21.5   to the left,  agree=0.663, adj=0.046, (0 split)
+##       DURATION    < 8.5    to the left,  agree=0.658, adj=0.031, (0 split)
+##       NUM_CREDITS < 2.5    to the right, agree=0.658, adj=0.031, (0 split)
+##       JOB         < 0.5    to the left,  agree=0.652, adj=0.015, (0 split)
+## 
+## Node number 23: 29 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.03448276  P(node) =0.04096045
+##     class counts:     1    28
+##    probabilities: 0.034 0.966 
+## 
+## Node number 24: 22 observations,    complexity param=0.004651163
+##   predicted class=Bad   expected loss=0.4545455  P(node) =0.03107345
+##     class counts:    12    10
+##    probabilities: 0.545 0.455 
+##   left son=48 (10 obs) right son=49 (12 obs)
+##   Primary splits:
+##       EMPLOYMENT  splits as  RRLRL,      improve=0.89924100, (0 missing)
+##       AGE         < 32.5   to the right, improve=0.89924100, (0 missing)
+##       NUM_CREDITS < 1.5    to the right, improve=0.36880210, (0 missing)
+##       AMOUNT      < 4685   to the right, improve=0.11032040, (0 missing)
+##       DURATION    < 25.5   to the left,  improve=0.07641225, (0 missing)
+##       SAV_ACCT    < 0.5    to the left,  improve=0.07641225, (0 missing)
+##   Surrogate splits:
+##       PRESENT_RESIDENT < 2.5    to the right, agree=0.727, adj=0.4, (0 split)
+##       DURATION         < 19.5   to the left,  agree=0.682, adj=0.3, (0 split)
+##       SAV_ACCT         < 1.5    to the left,  agree=0.682, adj=0.3, (0 split)
+##       INSTALL_RATE     < 2.5    to the left,  agree=0.682, adj=0.3, (0 split)
+##       PROP_UNKN_NONE   splits as  RL,         agree=0.682, adj=0.3, (0 split)
+## 
+## Node number 25: 10 observations
+##   predicted class=Good  expected loss=0.2  P(node) =0.01412429
+##     class counts:     2     8
+##    probabilities: 0.200 0.800 
+## 
+## Node number 32: 23 observations,    complexity param=0
+##   predicted class=Bad   expected loss=0.08695652  P(node) =0.03248588
+##     class counts:    21     2
+##    probabilities: 0.913 0.087 
+## 
+## Node number 33: 120 observations,    complexity param=0.01627907
+##   predicted class=Bad   expected loss=0.4166667  P(node) =0.1694915
+##     class counts:    70    50
+##    probabilities: 0.583 0.417 
+##   left son=66 (107 obs) right son=67 (13 obs)
+##   Primary splits:
+##       CHK_ACCT       < 1.5    to the left,  improve=3.7574360, (0 missing)
+##       AMOUNT         < 2321   to the left,  improve=1.7933900, (0 missing)
+##       OWN_RES        splits as  LR,         improve=1.7933900, (0 missing)
+##       PROP_UNKN_NONE splits as  RL,         improve=1.7649150, (0 missing)
+##       RENT           splits as  RL,         improve=1.7649150, (0 missing)
+##       INSTALL_RATE   < 3.5    to the right, improve=1.4482510, (0 missing)
+##       EMPLOYMENT     splits as  LLRRR,      improve=1.1859470, (0 missing)
+##       TELEPHONE      splits as  RL,         improve=1.0454630, (0 missing)
+##       DURATION       < 37.5   to the left,  improve=0.7417919, (0 missing)
+##       JOB            < 2.5    to the right, improve=0.6330553, (0 missing)
+##       NUM_DEPENDENTS < 1.5    to the right, improve=0.4848437, (0 missing)
+## 
+## Node number 34: 12 observations
+##   predicted class=Bad   expected loss=0.3333333  P(node) =0.01694915
+##     class counts:     8     4
+##    probabilities: 0.667 0.333 
+## 
+## Node number 35: 19 observations
+##   predicted class=Good  expected loss=0.1052632  P(node) =0.02683616
+##     class counts:     2    17
+##    probabilities: 0.105 0.895 
+## 
+## Node number 44: 65 observations,    complexity param=0.009302326
+##   predicted class=Good  expected loss=0.4769231  P(node) =0.09180791
+##     class counts:    31    34
+##    probabilities: 0.477 0.523 
+##   left son=88 (46 obs) right son=89 (19 obs)
+##   Primary splits:
+##       RADIO/TV         splits as  LR,         improve=2.5426140, (0 missing)
+##       NEW_CAR          splits as  RL,         improve=2.4650250, (0 missing)
+##       PRESENT_RESIDENT < 2.5    to the left,  improve=2.3467830, (0 missing)
+##       AMOUNT           < 1211.5 to the right, improve=2.2683560, (0 missing)
+##       REAL_ESTATE      splits as  LR,         improve=1.4285560, (0 missing)
+##       AGE              < 36.5   to the left,  improve=1.4285560, (0 missing)
+##       DURATION         < 11     to the right, improve=1.0459490, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.8641198, (0 missing)
+##       NUM_CREDITS      < 1.5    to the left,  improve=0.6399433, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=0.5885359, (0 missing)
+##       EMPLOYMENT       splits as  LRLRR,      improve=0.5734283, (0 missing)
+##   Surrogate splits:
+##       GUARANTOR       splits as  LR,         agree=0.754, adj=0.158, (0 split)
+##       DURATION        < 9.5    to the right, agree=0.738, adj=0.105, (0 split)
+##       AMOUNT          < 638.5  to the right, agree=0.723, adj=0.053, (0 split)
+##       MALE_MAR_or_WID splits as  LR,         agree=0.723, adj=0.053, (0 split)
+## 
+## Node number 45: 119 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.2352941  P(node) =0.1680791
+##     class counts:    28    91
+##    probabilities: 0.235 0.765 
+##   left son=90 (95 obs) right son=91 (24 obs)
+##   Primary splits:
+##       EMPLOYMENT       splits as  RLLRL,      improve=2.2872450, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=2.0218360, (0 missing)
+##       AMOUNT           < 1481   to the right, improve=1.4212790, (0 missing)
+##       AGE              < 25.5   to the left,  improve=1.4185860, (0 missing)
+##       DURATION         < 11.5   to the right, improve=1.2266430, (0 missing)
+##       GUARANTOR        splits as  LR,         improve=1.0407630, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.8777887, (0 missing)
+##       FURNITURE        splits as  RL,         improve=0.8291333, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.8086342, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the left,  improve=0.7525334, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=0.7208714, (0 missing)
+##   Surrogate splits:
+##       AMOUNT   < 6232   to the left,  agree=0.824, adj=0.125, (0 split)
+##       AGE      < 66.5   to the left,  agree=0.815, adj=0.083, (0 split)
+##       DURATION < 19     to the left,  agree=0.807, adj=0.042, (0 split)
+##       MALE_DIV splits as  LR,         agree=0.807, adj=0.042, (0 split)
+## 
+## Node number 48: 10 observations
+##   predicted class=Bad   expected loss=0.3  P(node) =0.01412429
+##     class counts:     7     3
+##    probabilities: 0.700 0.300 
+## 
+## Node number 49: 12 observations
+##   predicted class=Good  expected loss=0.4166667  P(node) =0.01694915
+##     class counts:     5     7
+##    probabilities: 0.417 0.583 
+## 
+## Node number 66: 107 observations,    complexity param=0.007751938
+##   predicted class=Bad   expected loss=0.3738318  P(node) =0.1511299
+##     class counts:    67    40
+##    probabilities: 0.626 0.374 
+##   left son=132 (19 obs) right son=133 (88 obs)
+##   Primary splits:
+##       PROP_UNKN_NONE   splits as  RL,         improve=1.4104070, (0 missing)
+##       AMOUNT           < 2313   to the left,  improve=1.2935570, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=1.1314920, (0 missing)
+##       EMPLOYMENT       splits as  LLRRR,      improve=0.8817509, (0 missing)
+##       OWN_RES          splits as  LR,         improve=0.8572796, (0 missing)
+##       RENT             splits as  RL,         improve=0.8442479, (0 missing)
+##       AGE              < 25.5   to the left,  improve=0.8303198, (0 missing)
+##       TELEPHONE        splits as  RL,         improve=0.7043999, (0 missing)
+##       MALE_DIV         splits as  RL,         improve=0.6886233, (0 missing)
+##       JOB              < 2.5    to the right, improve=0.6475312, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the right, improve=0.5810531, (0 missing)
+##   Surrogate splits:
+##       EDUCATION splits as  RL,         agree=0.860, adj=0.211, (0 split)
+##       AMOUNT    < 11544  to the right, agree=0.841, adj=0.105, (0 split)
+## 
+## Node number 67: 13 observations
+##   predicted class=Good  expected loss=0.2307692  P(node) =0.01836158
+##     class counts:     3    10
+##    probabilities: 0.231 0.769 
+## 
+## Node number 88: 46 observations,    complexity param=0.009302326
+##   predicted class=Bad   expected loss=0.4347826  P(node) =0.06497175
+##     class counts:    26    20
+##    probabilities: 0.565 0.435 
+##   left son=176 (12 obs) right son=177 (34 obs)
+##   Primary splits:
+##       PRESENT_RESIDENT < 2.5    to the left,  improve=4.7191530, (0 missing)
+##       TELEPHONE        splits as  LR,         improve=1.8377330, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=1.8119120, (0 missing)
+##       AGE              < 36.5   to the left,  improve=1.3745060, (0 missing)
+##       NEW_CAR          splits as  RL,         improve=1.1097680, (0 missing)
+##       AMOUNT           < 1208.5 to the right, improve=0.8010063, (0 missing)
+##       EMPLOYMENT       splits as  LRLRR,      improve=0.5215893, (0 missing)
+##       OWN_RES          splits as  RL,         improve=0.4902360, (0 missing)
+##       HISTORY          < 3      to the left,  improve=0.3941726, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=0.3941726, (0 missing)
+##       NUM_CREDITS      < 1.5    to the left,  improve=0.3941726, (0 missing)
+##   Surrogate splits:
+##       AMOUNT  < 1268   to the right, agree=0.761, adj=0.083, (0 split)
+##       FOREIGN splits as  RL,         agree=0.761, adj=0.083, (0 split)
+## 
+## Node number 89: 19 observations
+##   predicted class=Good  expected loss=0.2631579  P(node) =0.02683616
+##     class counts:     5    14
+##    probabilities: 0.263 0.737 
+## 
+## Node number 90: 95 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.2736842  P(node) =0.1341808
+##     class counts:    26    69
+##    probabilities: 0.274 0.726 
+##   left son=180 (78 obs) right son=181 (17 obs)
+##   Primary splits:
+##       AMOUNT           < 1481   to the right, improve=3.0253170, (0 missing)
+##       AGE              < 25.5   to the left,  improve=1.5682810, (0 missing)
+##       DURATION         < 16.5   to the right, improve=1.4434990, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=1.1886140, (0 missing)
+##       GUARANTOR        splits as  LR,         improve=1.0108290, (0 missing)
+##       FURNITURE        splits as  RL,         improve=0.9264438, (0 missing)
+##       JOB              < 1.5    to the right, improve=0.7823586, (0 missing)
+##       NEW_CAR          splits as  LR,         improve=0.6458830, (0 missing)
+##       PRESENT_RESIDENT < 1.5    to the right, improve=0.6458830, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.5137697, (0 missing)
+##       OTHER_INSTALL    splits as  RL,         improve=0.5128851, (0 missing)
+## 
+## Node number 91: 24 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.08333333  P(node) =0.03389831
+##     class counts:     2    22
+##    probabilities: 0.083 0.917 
+## 
+## Node number 132: 19 observations
+##   predicted class=Bad   expected loss=0.2105263  P(node) =0.02683616
+##     class counts:    15     4
+##    probabilities: 0.789 0.211 
+## 
+## Node number 133: 88 observations,    complexity param=0.007751938
+##   predicted class=Bad   expected loss=0.4090909  P(node) =0.1242938
+##     class counts:    52    36
+##    probabilities: 0.591 0.409 
+##   left son=266 (22 obs) right son=267 (66 obs)
+##   Primary splits:
+##       AGE        < 25.5   to the left,  improve=1.1687170, (0 missing)
+##       RENT       splits as  RL,         improve=1.0756890, (0 missing)
+##       AMOUNT     < 5332   to the left,  improve=0.9367041, (0 missing)
+##       OWN_RES    splits as  LR,         improve=0.8369647, (0 missing)
+##       MALE_DIV   splits as  RL,         improve=0.7668834, (0 missing)
+##       EMPLOYMENT splits as  LLRRR,      improve=0.6635912, (0 missing)
+##       HISTORY    < 3.5    to the left,  improve=0.6218792, (0 missing)
+##       TELEPHONE  splits as  RL,         improve=0.5317487, (0 missing)
+##       JOB        < 2.5    to the right, improve=0.5048817, (0 missing)
+##       DURATION   < 34.5   to the left,  improve=0.4191687, (0 missing)
+##       SAV_ACCT   < 0.5    to the left,  improve=0.3300392, (0 missing)
+##   Surrogate splits:
+##       SAV_ACCT < 1.5    to the right, agree=0.784, adj=0.136, (0 split)
+##       RENT     splits as  RL,         agree=0.773, adj=0.091, (0 split)
+##       FOREIGN  splits as  RL,         agree=0.761, adj=0.045, (0 split)
+## 
+## Node number 176: 12 observations
+##   predicted class=Bad   expected loss=0.08333333  P(node) =0.01694915
+##     class counts:    11     1
+##    probabilities: 0.917 0.083 
+## 
+## Node number 177: 34 observations,    complexity param=0.009302326
+##   predicted class=Good  expected loss=0.4411765  P(node) =0.0480226
+##     class counts:    15    19
+##    probabilities: 0.441 0.559 
+##   left son=354 (14 obs) right son=355 (20 obs)
+##   Primary splits:
+##       EMPLOYMENT       splits as  LRRRL,      improve=0.82151800, (0 missing)
+##       AMOUNT           < 1052.5 to the right, improve=0.76024600, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=0.58698890, (0 missing)
+##       NEW_CAR          splits as  RL,         improve=0.35751940, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the left,  improve=0.35751940, (0 missing)
+##       AGE              < 28.5   to the right, improve=0.34362870, (0 missing)
+##       NUM_CREDITS      < 1.5    to the left,  improve=0.20022550, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.09252073, (0 missing)
+##       OWN_RES          splits as  RL,         improve=0.09252073, (0 missing)
+##       JOB              < 1.5    to the right, improve=0.09252073, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=0.04894527, (0 missing)
+##   Surrogate splits:
+##       NUM_CREDITS    < 1.5    to the right, agree=0.735, adj=0.357, (0 split)
+##       HISTORY        < 3      to the right, agree=0.706, adj=0.286, (0 split)
+##       PROP_UNKN_NONE splits as  RL,         agree=0.706, adj=0.286, (0 split)
+##       AGE            < 28.5   to the right, agree=0.706, adj=0.286, (0 split)
+##       DURATION       < 11     to the left,  agree=0.676, adj=0.214, (0 split)
+## 
+## Node number 180: 78 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.3205128  P(node) =0.1101695
+##     class counts:    25    53
+##    probabilities: 0.321 0.679 
+##   left son=360 (53 obs) right son=361 (25 obs)
+##   Primary splits:
+##       JOB              < 1.5    to the right, improve=1.2897840, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=1.1884850, (0 missing)
+##       FURNITURE        splits as  RL,         improve=1.1779120, (0 missing)
+##       PRESENT_RESIDENT < 1.5    to the right, improve=1.1224670, (0 missing)
+##       DURATION         < 16.5   to the right, improve=0.9096778, (0 missing)
+##       AGE              < 26     to the left,  improve=0.7488033, (0 missing)
+##       INSTALL_RATE     < 1.5    to the right, improve=0.6617860, (0 missing)
+##       NEW_CAR          splits as  LR,         improve=0.5444115, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.5414430, (0 missing)
+##       TELEPHONE        splits as  RL,         improve=0.5392534, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.4678284, (0 missing)
+##   Surrogate splits:
+##       NUM_DEPENDENTS < 1.5    to the left,  agree=0.756, adj=0.24, (0 split)
+##       DURATION       < 11.5   to the right, agree=0.705, adj=0.08, (0 split)
+##       FOREIGN        splits as  LR,         agree=0.705, adj=0.08, (0 split)
+##       INSTALL_RATE   < 1.5    to the right, agree=0.692, adj=0.04, (0 split)
+## 
+## Node number 181: 17 observations
+##   predicted class=Good  expected loss=0.05882353  P(node) =0.0240113
+##     class counts:     1    16
+##    probabilities: 0.059 0.941 
+## 
+## Node number 266: 22 observations,    complexity param=0
+##   predicted class=Bad   expected loss=0.2727273  P(node) =0.03107345
+##     class counts:    16     6
+##    probabilities: 0.727 0.273 
+## 
+## Node number 267: 66 observations,    complexity param=0.007751938
+##   predicted class=Bad   expected loss=0.4545455  P(node) =0.09322034
+##     class counts:    36    30
+##    probabilities: 0.545 0.455 
+##   left son=534 (53 obs) right son=535 (13 obs)
+##   Primary splits:
+##       HISTORY       < 3.5    to the left,  improve=1.8635150, (0 missing)
+##       AGE           < 28.5   to the right, improve=1.3377840, (0 missing)
+##       MALE_DIV      splits as  RL,         improve=1.2966400, (0 missing)
+##       JOB           < 2.5    to the right, improve=0.9151274, (0 missing)
+##       NEW_CAR       splits as  LR,         improve=0.8440559, (0 missing)
+##       INSTALL_RATE  < 3.5    to the right, improve=0.7964395, (0 missing)
+##       DURATION      < 25.5   to the left,  improve=0.7964395, (0 missing)
+##       TELEPHONE     splits as  RL,         improve=0.7323168, (0 missing)
+##       EMPLOYMENT    splits as  LLRRL,      improve=0.6899653, (0 missing)
+##       AMOUNT        < 2314   to the left,  improve=0.5861956, (0 missing)
+##       OTHER_INSTALL splits as  RL,         improve=0.5861956, (0 missing)
+##   Surrogate splits:
+##       MALE_MAR_or_WID splits as  LR,         agree=0.848, adj=0.231, (0 split)
+##       AGE             < 63     to the left,  agree=0.833, adj=0.154, (0 split)
+## 
+## Node number 354: 14 observations
+##   predicted class=Bad   expected loss=0.4285714  P(node) =0.01977401
+##     class counts:     8     6
+##    probabilities: 0.571 0.429 
+## 
+## Node number 355: 20 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.35  P(node) =0.02824859
+##     class counts:     7    13
+##    probabilities: 0.350 0.650 
+## 
+## Node number 360: 53 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.3773585  P(node) =0.07485876
+##     class counts:    20    33
+##    probabilities: 0.377 0.623 
+##   left son=720 (42 obs) right son=721 (11 obs)
+##   Primary splits:
+##       PRESENT_RESIDENT < 1.5    to the right, improve=2.8536630, (0 missing)
+##       SAV_ACCT         < 0.5    to the left,  improve=1.4599430, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=1.2848270, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=1.2848270, (0 missing)
+##       AMOUNT           < 3103.5 to the right, improve=1.0633420, (0 missing)
+##       AGE              < 26     to the left,  improve=0.7225342, (0 missing)
+##       TELEPHONE        splits as  RL,         improve=0.5795651, (0 missing)
+##       OTHER_INSTALL    splits as  RL,         improve=0.4862535, (0 missing)
+##       FURNITURE        splits as  RL,         improve=0.4574930, (0 missing)
+##       RADIO/TV         splits as  RL,         improve=0.3854789, (0 missing)
+##       OWN_RES          splits as  LR,         improve=0.3501900, (0 missing)
+##   Surrogate splits:
+##       AMOUNT     < 1499.5 to the right, agree=0.83, adj=0.182, (0 split)
+##       EMPLOYMENT splits as  -RL-L,      agree=0.83, adj=0.182, (0 split)
+## 
+## Node number 361: 25 observations,    complexity param=0
+##   predicted class=Good  expected loss=0.2  P(node) =0.03531073
+##     class counts:     5    20
+##    probabilities: 0.200 0.800 
+## 
+## Node number 534: 53 observations,    complexity param=0.007751938
+##   predicted class=Bad   expected loss=0.3962264  P(node) =0.07485876
+##     class counts:    32    21
+##    probabilities: 0.604 0.396 
+##   left son=1068 (28 obs) right son=1069 (25 obs)
+##   Primary splits:
+##       INSTALL_RATE     < 2.5    to the right, improve=2.6933220, (0 missing)
+##       AMOUNT           < 3415   to the left,  improve=1.5913530, (0 missing)
+##       TELEPHONE        splits as  RL,         improve=1.1284560, (0 missing)
+##       MALE_DIV         splits as  RL,         improve=1.0689550, (0 missing)
+##       EMPLOYMENT       splits as  LLRRL,      improve=0.9895066, (0 missing)
+##       DURATION         < 25.5   to the left,  improve=0.8422142, (0 missing)
+##       OTHER_INSTALL    splits as  RL,         improve=0.4998337, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the right, improve=0.2886240, (0 missing)
+##       AGE              < 41.5   to the right, improve=0.2886240, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.1999168, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=0.1317364, (0 missing)
+##   Surrogate splits:
+##       AMOUNT      < 4195   to the left,  agree=0.736, adj=0.44, (0 split)
+##       RADIO/TV    splits as  RL,         agree=0.623, adj=0.20, (0 split)
+##       NUM_CREDITS < 1.5    to the left,  agree=0.623, adj=0.20, (0 split)
+##       GUARANTOR   splits as  LR,         agree=0.604, adj=0.16, (0 split)
+##       DURATION    < 28.5   to the left,  agree=0.585, adj=0.12, (0 split)
+## 
+## Node number 535: 13 observations
+##   predicted class=Good  expected loss=0.3076923  P(node) =0.01836158
+##     class counts:     4     9
+##    probabilities: 0.308 0.692 
+## 
+## Node number 720: 42 observations,    complexity param=0.004651163
+##   predicted class=Good  expected loss=0.452381  P(node) =0.05932203
+##     class counts:    19    23
+##    probabilities: 0.452 0.548 
+##   left son=1440 (27 obs) right son=1441 (15 obs)
+##   Primary splits:
+##       SAV_ACCT         < 0.5    to the left,  improve=3.1660520, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=2.2837500, (0 missing)
+##       CHK_ACCT         < 0.5    to the left,  improve=1.8205590, (0 missing)
+##       FURNITURE        splits as  RL,         improve=1.0117570, (0 missing)
+##       AMOUNT           < 3044.5 to the right, improve=1.0117570, (0 missing)
+##       AGE              < 26     to the left,  improve=0.5807472, (0 missing)
+##       OWN_RES          splits as  LR,         improve=0.5807472, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.4966875, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the left,  improve=0.3145779, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=0.2574115, (0 missing)
+##       DURATION         < 16.5   to the right, improve=0.1749017, (0 missing)
+##   Surrogate splits:
+##       CHK_ACCT       < 0.5    to the left,  agree=0.738, adj=0.267, (0 split)
+##       RETRAINING     splits as  LR,         agree=0.738, adj=0.267, (0 split)
+##       AMOUNT         < 5081.5 to the left,  agree=0.690, adj=0.133, (0 split)
+##       AGE            < 41     to the left,  agree=0.667, adj=0.067, (0 split)
+##       NUM_DEPENDENTS < 1.5    to the left,  agree=0.667, adj=0.067, (0 split)
+## 
+## Node number 721: 11 observations
+##   predicted class=Good  expected loss=0.09090909  P(node) =0.01553672
+##     class counts:     1    10
+##    probabilities: 0.091 0.909 
+## 
+## Node number 1068: 28 observations,    complexity param=0
+##   predicted class=Bad   expected loss=0.25  P(node) =0.03954802
+##     class counts:    21     7
+##    probabilities: 0.750 0.250 
+## 
+## Node number 1069: 25 observations,    complexity param=0.007751938
+##   predicted class=Good  expected loss=0.44  P(node) =0.03531073
+##     class counts:    11    14
+##    probabilities: 0.440 0.560 
+##   left son=2138 (12 obs) right son=2139 (13 obs)
+##   Primary splits:
+##       EMPLOYMENT       splits as  LLRRL,      improve=2.487421000, (0 missing)
+##       DURATION         < 28.5   to the left,  improve=0.973782800, (0 missing)
+##       AMOUNT           < 3820   to the left,  improve=0.121598200, (0 missing)
+##       AGE              < 37.5   to the right, improve=0.121598200, (0 missing)
+##       PRESENT_RESIDENT < 2.5    to the right, improve=0.025512030, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.008429917, (0 missing)
+##   Surrogate splits:
+##       AGE              < 32.5   to the right, agree=0.76, adj=0.500, (0 split)
+##       AMOUNT           < 3463   to the left,  agree=0.72, adj=0.417, (0 split)
+##       PRESENT_RESIDENT < 1.5    to the left,  agree=0.64, adj=0.250, (0 split)
+##       CHK_ACCT         < 0.5    to the left,  agree=0.60, adj=0.167, (0 split)
+##       RADIO/TV         splits as  RL,         agree=0.60, adj=0.167, (0 split)
+## 
+## Node number 1440: 27 observations,    complexity param=0.004651163
+##   predicted class=Bad   expected loss=0.4074074  P(node) =0.03813559
+##     class counts:    16    11
+##    probabilities: 0.593 0.407 
+##   left son=2880 (12 obs) right son=2881 (15 obs)
+##   Primary splits:
+##       DURATION         < 16.5   to the right, improve=1.13745600, (0 missing)
+##       INSTALL_RATE     < 2.5    to the right, improve=0.73284420, (0 missing)
+##       AGE              < 35.5   to the left,  improve=0.73284420, (0 missing)
+##       AMOUNT           < 2789   to the right, improve=0.38661150, (0 missing)
+##       MALE_SINGLE      splits as  LR,         improve=0.38384910, (0 missing)
+##       PRESENT_RESIDENT < 3.5    to the left,  improve=0.28063400, (0 missing)
+##       HISTORY          < 2.5    to the left,  improve=0.08521439, (0 missing)
+##       EMPLOYMENT       splits as  -RL-R,      improve=0.08521439, (0 missing)
+##       TELEPHONE        splits as  LR,         improve=0.08521439, (0 missing)
+##       FURNITURE        splits as  RL,         improve=0.07400100, (0 missing)
+##       OWN_RES          splits as  LR,         improve=0.00180628, (0 missing)
+##   Surrogate splits:
+##       AGE          < 24.5   to the left,  agree=0.741, adj=0.417, (0 split)
+##       FURNITURE    splits as  RL,         agree=0.667, adj=0.250, (0 split)
+##       AMOUNT       < 1972   to the right, agree=0.667, adj=0.250, (0 split)
+##       INSTALL_RATE < 1.5    to the left,  agree=0.667, adj=0.250, (0 split)
+##       MALE_SINGLE  splits as  LR,         agree=0.667, adj=0.250, (0 split)
+## 
+## Node number 1441: 15 observations
+##   predicted class=Good  expected loss=0.2  P(node) =0.02118644
+##     class counts:     3    12
+##    probabilities: 0.200 0.800 
+## 
+## Node number 2138: 12 observations
+##   predicted class=Bad   expected loss=0.3333333  P(node) =0.01694915
+##     class counts:     8     4
+##    probabilities: 0.667 0.333 
+## 
+## Node number 2139: 13 observations
+##   predicted class=Good  expected loss=0.2307692  P(node) =0.01836158
+##     class counts:     3    10
+##    probabilities: 0.231 0.769 
+## 
+## Node number 2880: 12 observations
+##   predicted class=Bad   expected loss=0.25  P(node) =0.01694915
+##     class counts:     9     3
+##    probabilities: 0.750 0.250 
+## 
+## Node number 2881: 15 observations
+##   predicted class=Good  expected loss=0.4666667  P(node) =0.02118644
+##     class counts:     7     8
+##    probabilities: 0.467 0.533
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Varying Cp= 0 and Max Depth = 5\#\#\#\#\#\#}
+\NormalTok{mytree6 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(myFormula, }
+\AttributeTok{data =}\NormalTok{ train,}\AttributeTok{method=}\StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{15}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{15}\NormalTok{, }\AttributeTok{cp=}\DecValTok{0}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{rpart.plot}\NormalTok{(mytree6)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{NEW_Assignment2_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\#Training Error }
+\NormalTok{pred\_train }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree6, }\AttributeTok{data=}\NormalTok{train, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{15}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{15}\NormalTok{, }\AttributeTok{cp=}\DecValTok{0}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2033898
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#          \#\# Test Error}
+\NormalTok{pred\_test }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mytree6, }\AttributeTok{newdata=}\NormalTok{test, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{, }
+\AttributeTok{parms=}\FunctionTok{list}\NormalTok{(}\AttributeTok{split=}\StringTok{"information"}\NormalTok{), }
+\AttributeTok{control =} \FunctionTok{rpart.control}\NormalTok{(}\AttributeTok{minsplit =} \DecValTok{15}\NormalTok{, }\AttributeTok{minbucket =} \DecValTok{15}\NormalTok{, }\AttributeTok{cp=}\DecValTok{0}\NormalTok{, }
+\FunctionTok{list}\NormalTok{(}\AttributeTok{maxdepth=}\DecValTok{1}\NormalTok{)))}
+\FunctionTok{mean}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE }\SpecialCharTok{!=}\NormalTok{ pred\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2363014
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#   Putting it in a table}
+\NormalTok{table\_mat }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{RESPONSE, pred\_test)}
+\NormalTok{table\_mat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       pred_test
+##        Bad Good
+##   Bad   37   48
+##   Good  21  186
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{accuracy\_Test }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{diag}\NormalTok{(table\_mat)) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(table\_mat)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{\textquotesingle{}Accuracy for test\textquotesingle{}}\NormalTok{, accuracy\_Test))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Accuracy for test 0.763698630136986"
+\end{verbatim}
+
+\end{document}

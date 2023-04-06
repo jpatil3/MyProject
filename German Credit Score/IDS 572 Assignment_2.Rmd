@@ -1,0 +1,460 @@
+---
+title: "IDS 572 _ HW assignment 2"
+author: "Jitesh Patil, Pratik Sharma, Vibhav Mayekar"
+date: "2/22/2022"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r}
+
+
+
+#Loading the libraries 
+
+pacman::p_load(pacman,party,psych,rio,tidyverse)
+library(reshape2)
+library(apaTables)
+library(tidyselect)
+library(dplyr)
+library(pacman)
+library(rio)
+library(party)
+library(ggplot2)
+library(readxl)
+library(corrplot)
+library(C50)
+library(Contrib.url)
+
+#importing the data from Xls file
+
+
+gCred <- read_excel("German Credit.xls")
+View(gCred)
+
+#creating copies for of dataset gCred for EDA 
+gCred_copy1 <- gCred
+gCred_copy2 <-gCred 
+
+```
+
+
+
+```{r cars}
+
+#Exploratory data analysis
+
+summary(gCred)
+
+head(gCred)
+
+names(gCred)
+
+dim(gCred)
+
+str(gCred)
+
+#calculating mean and standard deviation of Duration , Amount,Installment rate ,age and 
+#No. credit variables
+
+mean(gCred$DURATION)   
+mean(gCred$AMOUNT)
+mean(gCred$INSTALL_RATE)
+mean(gCred$AGE)
+mean(gCred$NUM_CREDITS)
+
+#Calculatig SD of Duration,Amount,Installment rate ,age and No. of credits variables
+
+sd(gCred$DURATION)
+sd(gCred$AMOUNT)
+sd(gCred$INSTALL_RATE)
+sd(gCred$AGE)
+sd(gCred$NUM_CREDITS)
+sd(gCred$NUM_DEPENDENTS)
+
+#Convertiting variables in categorical varibles 
+
+gCred$`OBS#` <- as.factor(gCred$`OBS#`)
+gCred$NEW_CAR <- as.factor(gCred$NEW_CAR)
+gCred$USED_CAR <- as.factor(gCred$USED_CAR)
+gCred$FURNITURE <- as.factor(gCred$FURNITURE)
+gCred$`RADIO/TV` <- as.factor(gCred$`RADIO/TV`)
+gCred$EDUCATION <- as.factor(gCred$EDUCATION)
+gCred$RETRAINING <- as.factor(gCred$RETRAINING)
+gCred$EMPLOYMENT <- as.factor(gCred$EMPLOYMENT)
+gCred$MALE_DIV <- as.factor(gCred$MALE_DIV)
+gCred$MALE_SINGLE <- as.factor(gCred$MALE_SINGLE)
+gCred$MALE_MAR_or_WID <- as.factor(gCred$MALE_MAR_or_WID)
+gCred$`CO-APPLICANT` <- as.factor(gCred$`CO-APPLICANT`)
+gCred$GUARANTOR <- as.factor(gCred$GUARANTOR)
+gCred$REAL_ESTATE <- as.factor(gCred$REAL_ESTATE)
+gCred$PROP_UNKN_NONE <- as.factor(gCred$PROP_UNKN_NONE)
+gCred$OTHER_INSTALL <- as.factor(gCred$OTHER_INSTALL)
+gCred$RENT <- as.factor(gCred$RENT)
+gCred$OWN_RES <- as.factor(gCred$OWN_RES)
+gCred$TELEPHONE <- as.factor(gCred$TELEPHONE)
+gCred$FOREIGN <- as.factor(gCred$FOREIGN)
+
+
+
+## Good case bad case analysis 
+
+gCred$RESPONSE <- as.factor(ifelse(gCred$RESPONSE == 1, "Good" , "Bad"))
+table1 <- table(gCred$RESPONSE)
+table_pt <- cbind(table1,round(prop.table(table1)*100,2))
+colnames(table_pt)<- c('Count','Percentage')
+knitr::kable(table_pt)
+
+
+
+## Removing redundant data
+
+
+gCred_copy1$NEW_CAR <-  replace(gCred_copy1$NEW_CAR, gCred_copy1$NEW_CAR == 1 ,
+                                "NEW_CAR" )
+gCred_copy1$NEW_CAR <-  replace(gCred_copy1$NEW_CAR, gCred_copy1$NEW_CAR == 0 , "" )
+gCred_copy1$USED_CAR <-  replace(gCred_copy1$USED_CAR, gCred_copy1$USED_CAR == 1 , 
+                                 "USED_CAR" )
+gCred_copy1$USED_CAR <-  replace(gCred_copy1$USED_CAR, gCred_copy1$USED_CAR == 0 , "" )
+gCred_copy1$FURNITURE <-  replace(gCred_copy1$FURNITURE, gCred_copy1$FURNITURE == 1 , 
+                                  "FURNITURE" )
+gCred_copy1$FURNITURE <-  replace(gCred_copy1$FURNITURE, gCred_copy1$FURNITURE == 0 , "" )
+gCred_copy1$`RADIO/TV` <-  replace(gCred_copy1$`RADIO/TV`, gCred_copy1$`RADIO/TV` == 1 , 
+                                   "RADIO/TV" )
+gCred_copy1$`RADIO/TV` <-  replace(gCred_copy1$`RADIO/TV`, gCred_copy1$`RADIO/TV` == 0 ,
+                                   "" )
+gCred_copy1$EDUCATION <-  replace(gCred_copy1$EDUCATION, gCred_copy1$EDUCATION == 1 , 
+                                  "EDUCATION" )
+gCred_copy1$EDUCATION <-  replace(gCred_copy1$EDUCATION, gCred_copy1$EDUCATION == 0 , "" )
+gCred_copy1$RETRAINING <-  replace(gCred_copy1$RETRAINING, gCred_copy1$RETRAINING == 1 ,
+                                   "RETRAINING")
+gCred_copy1$RETRAINING <-  replace(gCred_copy1$RETRAINING, gCred_copy1$RETRAINING == 0 , 
+                                   "")
+gCred_copy1$PURPOSE <- paste(gCred_copy1$NEW_CAR,gCred_copy1$USED_CAR,
+                             gCred_copy1$FURNITURE,gCred_copy1$`RADIO/TV`,
+                       gCred_copy1$EDUCATION,gCred_copy1$RETRAINING)
+gCred_copy1$PURPOSE <- trimws(gCred_copy1$PURPOSE)
+
+gCred_copy1<- gCred_copy1 [ , -which(names(gCred_copy1) %in% c("NEW_CAR" , "USED_CAR" ,
+                                                               "FURNITURE", 
+                                             "RADIO/TV","EDUCATION","RETRAINING",
+                                             "TELEPHONE","FOREIGN"))]
+gCred_copy1$PURPOSE[gCred_copy1$PURPOSE == ""] <- NA
+gCred_copy1$PURPOSE[is.na(gCred_copy1$PURPOSE)] <- "OTHER"
+
+```
+
+
+```{r}
+
+#ploting various graphs and plots to decide the target varible , figure the relation with target variable
+
+#Corelation graph Categorical vs Target variables
+
+gCred_copy2$CHK_ACCT <- as.numeric(gCred_copy2$CHK_ACCT)
+gCred_copy2$HISTORY <- as.numeric(gCred_copy2$HISTORY)
+gCred_copy2$SAV_ACCT <- as.numeric(gCred_copy2$SAV_ACCT)
+gCred_copy2$EMPLOYMENT <- as.numeric(gCred_copy2$EMPLOYMENT)
+gCred_copy2$RESPONSE <- as.numeric(gCred_copy2$RESPONSE)
+gCred_copy2$PRESENT_RESIDENT <- as.numeric(gCred_copy2$PRESENT_RESIDENT)
+gCred_copy2$JOB <- as.numeric(gCred_copy2$JOB)
+
+df1 <- gCred_copy2 %>% select(c(CHK_ACCT,HISTORY,SAV_ACCT,EMPLOYMENT,
+                               PRESENT_RESIDENT,JOB,RESPONSE))
+df1
+
+df.cor = cor(df1)
+corrplot(df.cor)
+apa.cor.table(df1,"APA correlation Table1.doc")
+
+#Corelation graph Numerical vs Target variables
+
+df2 <- gCred_copy2 %>% select(c(DURATION,AMOUNT,INSTALL_RATE,AGE,NUM_CREDITS,
+                                NUM_DEPENDENTS))
+df2
+df.cor = cor(df2)
+corrplot(df.cor)
+apa.cor.table(df2,"APA correlation Table2.doc")
+
+
+
+p<-ggplot(data=gCred, aes(x=JOB, y=RESPONSE, fill=RESPONSE)) +
+          geom_bar(stat="identity")
+p
+
+p1<-ggplot(data=gCred, aes(x=CHK_ACCT, y=RESPONSE, fill=RESPONSE)) +
+          geom_bar(stat="identity")
+p1
+
+p2<-ggplot(data=gCred, aes(x=HISTORY, y=RESPONSE, fill=RESPONSE)) +
+          geom_bar(stat="identity")
+p2
+
+p3<-ggplot(data=gCred, aes(x=SAV_ACCT, y=RESPONSE, fill=RESPONSE)) +
+          geom_bar(stat="identity")
+p3
+
+p4<-ggplot(data=gCred, aes(x=EMPLOYMENT, y=RESPONSE, fill=EMPLOYMENT)) +
+          geom_bar(stat="identity")
+p4
+
+p5<-ggplot(data=gCred, aes(x=PRESENT_RESIDENT, y=RESPONSE, fill=RESPONSE)) +
+          geom_bar(stat="identity")
+p5
+
+
+attach(gCred)
+plot(RESPONSE, AGE, main="Age vs Response",
+     xlab="Age ", ylab="Response", pch=19)
+
+attach(gCred)
+plot(RESPONSE, CHK_ACCT, main="CHK_ACCT vs Response",
+     xlab="Response ", ylab="CHK_ACCT", pch=19)
+
+#####good vs bad plot####
+good = gCred[which(gCred[,32]=='Good'),]
+bad = gCred[which(gCred[,32]=="Bad"),]
+bad
+g <- good[,1]
+g
+
+#g <- as.numeric(g)
+plot(gCred[,32])
+
+
+
+####################Amount vs Credit Duration #####
+library(ggplot2)
+par(mfrow =c(1,1))
+plot(y=as.numeric(unlist(good[,11])),
+    x=as.numeric(unlist(good[,3])),pch=1,
+    xlab="Duration(months)",ylab="credit amount",main="Good Credit vs Duration")
+points(y=as.numeric(unlist(bad[,11])),
+x=as.numeric(unlist(bad[,3])),pch=3,
+xlab="Duration (months)",ylab="credit amount",main="")
+        
+plot(y=as.numeric(unlist(bad[,11])),
+    x=as.numeric(unlist(bad[,3])),pch=3,
+    xlab="Duration",ylab="credit amount",main="Bad Credit vs Duration")
+        
+
+####data exploring###
+library(ggplot2)
+par(mfrow =c(1,3))
+
+hist(as.numeric(unlist(good[,23])),xlab="age",ylab="",main="Good Credit Vs Age",
+     ylim=c(0,160))
+hist(as.numeric(unlist(bad[,23])),xlab="age",ylab="",main="Bad Credit Vs Age",
+     ylim=c(0,160))
+
+hist(as.numeric(unlist(gCred[,23])),xlab="age",ylab="",main="Response vs Age")
+
+##fetch column number for Real estate##
+colnames(gCred) #Colnames will return column names present in the dataset,gCred=DataFrame 
+#name
+data.frame(colnames(gCred)) #Returns column index numbers in table format,gCred=DataFrame
+
+## Histogram plots for Real estate variable##
+library(ggplot2)
+par(mfrow =c(1,3))
+hist((unlist(good[,21])),xlab="Real Estate",ylab="",main="Good Credit Vs Real Estate",
+     ylim=c(0,500))
+hist(as.numeric(unlist(bad[,21])),xlab="Rental_Property",ylab="",main="Bad Credit Vs Real Estate",ylim=c(0,500))
+
+hist(as.numeric(unlist(gCred[,21])),xlab="age",ylab="",main="Credit vs Real Estate")
+
+## The number of short term loans are greater than the long term loans
+## Short term loans(<30 months) with higher Credit amount(>10,000) have Bad Credit Response
+
+```
+
+```{r}
+## The number of short term loans are greater than the long term loans
+## Short term loans(<30 months) with higher Credit amount(>10,000) have Bad Credit Response
+
+
+
+##gCred = gCred[,-25]
+##gCred = as.matrix(gCred[order(gCred$good), ])
+##siz = c(300,700)
+##n = round(0.7*siz)
+
+#################################Kaggle#################
+
+##gCred = gCred[,-1]
+
+##miss = function(x){sum(is.na(x))/length(x)*100}
+##apply(gCred,2,miss)
+
+
+##Modelling#########################
+## 70-30 split; train and test data error 
+
+data <- gCred[-1]
+set.seed(134)
+## sampling it for 70 % and 30%
+indx <- sample(2, nrow(data) , replace = TRUE, prob= c(0.7,0.3)) 
+
+##train and test data
+train <- data[indx == 1, ]
+nrow(train)
+test <- data [indx ==2,]
+nrow(test)
+
+## Ratio test and train
+nrow(train)/nrow(data)
+
+## create tree for Response Target variable and all other variables##
+library(rpart)
+myFormula = RESPONSE ~ .
+mytree  <- rpart(myFormula, data = train)  #assign the formula to a variable
+print(mytree)
+
+install.packages("rpart.plot")
+library(rpart.plot)
+
+## train data error rate
+rpart.plot(mytree)
+
+library(rpart.plot)
+##predict(mytree, data = train, type = "class")
+pred_train <- predict(mytree, data = train, type = "class")
+mean(train$RESPONSE != pred_train)
+
+## test data error rate
+
+pred_test <- predict(mytree, newdata = test, type = "class")
+mean(test$RESPONSE != pred_test)
+print(mytree)
+
+
+## Split = Gini mini split = 10, minibucket =10 
+
+mytree2 <- rpart(myFormula, 
+data = train,method="class", 
+parms=list(split="gini"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+rpart.plot(mytree2)
+
+##          ##Training Error 
+pred_train <- predict(mytree2, data=train, type = "class", 
+parms=list(split="gini"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+mean(train$RESPONSE != pred_train)
+##          ## Test Error
+pred_test <- predict(mytree2, newdata=test, type = "class", 
+parms=list(split="gini"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+mean(test$RESPONSE != pred_test)
+
+
+## Split = Information Gain mini split = 10, minibucket =10 
+
+mytree3 <- rpart(myFormula, 
+data = train,method="class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+rpart.plot(mytree3)
+
+##          ##Training Error 
+pred_train <- predict(mytree3, data=train, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+mean(train$RESPONSE != pred_train)
+##          ## Test Error
+pred_test <- predict(mytree3, newdata=test, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10))
+mean(test$RESPONSE != pred_test)
+
+
+## Varying Cp=-1 and Max Depth =1######
+mytree4 <- rpart(myFormula, 
+data = train,method="class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp= -1, 
+list(maxdepth=1)))
+rpart.plot(mytree4)
+
+##          ##Training Error 
+pred_train <- predict(mytree4, data=train, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp=-1, 
+list(maxdepth=1)))
+mean(train$RESPONSE != pred_train)
+##          ## Test Error
+pred_test <- predict(mytree4, newdata=test, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp=-1, 
+list(maxdepth=1)))
+mean(test$RESPONSE != pred_test)
+
+### Although the training error improved 18% the test error increased to 30%
+
+## Varying Cp= -1 and Max Depth =10######
+mytree5 <- rpart(myFormula, 
+data = train,method="class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp= -1, 
+list(maxdepth=10)))
+rpart.plot(mytree5)
+
+##          ##Training Error 
+pred_train <- predict(mytree5, data=train, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp=-1, 
+list(maxdepth=10)))
+mean(train$RESPONSE != pred_train)
+##          ## Test Error
+pred_test <- predict(mytree5, newdata=test, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 10, minbucket = 10, cp=-1, 
+list(maxdepth=10)))
+mean(test$RESPONSE != pred_test)
+
+
+
+### Although the training error improved 18% the test error increased to 30%
+
+## Best way for selecting the pruning parameter Cp
+
+summary(mytree5) 
+
+##Cp =0 (for minimum error)
+
+## Varying Cp= 0 and Max Depth = 5######
+mytree6 <- rpart(myFormula, 
+data = train,method="class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 15, minbucket = 15, cp=0, 
+list(maxdepth=1)))
+rpart.plot(mytree6)
+
+##          ##Training Error 
+pred_train <- predict(mytree6, data=train, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 15, minbucket = 15, cp=0, 
+list(maxdepth=1)))
+mean(train$RESPONSE != pred_train)
+##          ## Test Error
+pred_test <- predict(mytree6, newdata=test, type = "class", 
+parms=list(split="information"), 
+control = rpart.control(minsplit = 15, minbucket = 15, cp=0, 
+list(maxdepth=1)))
+mean(test$RESPONSE != pred_test)
+
+
+##   Putting it in a table
+table_mat <- table(test$RESPONSE, pred_test)
+table_mat
+
+accuracy_Test <- sum(diag(table_mat)) / sum(table_mat)
+print(paste('Accuracy for test', accuracy_Test))
+
+ 
+
+```
+
+
